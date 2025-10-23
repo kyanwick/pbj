@@ -184,8 +184,10 @@ const handleRegister = async () => {
     localStorage.setItem('auth_token', data.data.token)
     localStorage.setItem('user_name', data.data.user.name)
     localStorage.setItem('user_id', data.data.user.id)
+    localStorage.setItem('profile_completed', 'false')
 
-    router.push('/lobby')
+    // New user - direct to profile form
+    router.push('/profile')
   } catch (error) {
     errors.general = 'Connection error. Please try again.'
     if (process.env.NODE_ENV !== 'production') {
