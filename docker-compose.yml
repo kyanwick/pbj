@@ -27,7 +27,7 @@ services:
   # Backend API Server (Internal Only)
   backend:
     build:
-      context: ../backend
+      context: ./backend
       dockerfile: Dockerfile
     container_name: pbj-backend
     depends_on:
@@ -52,7 +52,7 @@ services:
       REDIS_PORT: 6379
     restart: unless-stopped
     volumes:
-      - ../backend:/app
+      - ./backend:/app
       - /app/node_modules
     networks:
       - pbj-network
@@ -70,7 +70,7 @@ services:
   # Queue Worker (processes n8n jobs)
   worker:
     build:
-      context: ../backend
+      context: ./backend
       dockerfile: Dockerfile
     container_name: pbj-worker
     depends_on:
@@ -84,7 +84,7 @@ services:
     command: node services/worker.js
     restart: unless-stopped
     volumes:
-      - ../backend:/app
+      - ./backend:/app
       - /app/node_modules
     networks:
       - pbj-network
