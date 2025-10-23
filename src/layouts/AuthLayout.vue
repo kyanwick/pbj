@@ -123,14 +123,14 @@ $font-mono: 'Courier New', monospace;
     font-family: $font-mono;
     font-size: 24px;
     font-weight: 900;
-    color: $light;
+    color: $color-light;
     text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
     letter-spacing: 2px;
   }
 
   .tagline {
     font-size: 12px;
-    color: rgba($light, 0.9);
+    color: rgba($color-light, 0.9);
     font-weight: bold;
     letter-spacing: 1px;
     white-space: nowrap;
@@ -142,8 +142,8 @@ $font-mono: 'Courier New', monospace;
 
   .btn-create-header {
     background: $color-accent-red;
-    color: $light;
-    border: 3px solid $light;
+    color: $color-light;
+    border: 3px solid $color-light;
     padding: 10px 20px;
     font-weight: bold;
     font-size: 13px;
@@ -163,7 +163,7 @@ $font-mono: 'Courier New', monospace;
 
     &:hover {
       background: $color-accent-yellow;
-      color: $dark;
+      color: $color-dark;
       transform: translate(-2px, -2px);
       box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
     }
@@ -179,8 +179,8 @@ $font-mono: 'Courier New', monospace;
   }
 
   .profile-btn {
-    background: $light;
-    border: 3px solid $light;
+    background: $color-light;
+    border: 3px solid $color-light;
     cursor: pointer;
     padding: 2px;
     border-radius: 0;
@@ -201,9 +201,9 @@ $font-mono: 'Courier New', monospace;
       align-items: center;
       justify-content: center;
       font-weight: 900;
-      color: $dark;
+      color: $color-dark;
       font-size: 16px;
-      border: 2px solid $dark;
+      border: 2px solid $color-dark;
       box-sizing: border-box;
     }
   }
@@ -212,8 +212,8 @@ $font-mono: 'Courier New', monospace;
     position: absolute;
     top: 100%;
     right: 0;
-    background: $light;
-    border: 3px solid $dark;
+    background: $color-light;
+    border: 3px solid $color-dark;
     border-radius: 0;
     margin-top: 8px;
     box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
@@ -225,9 +225,9 @@ $font-mono: 'Courier New', monospace;
       display: block;
       padding: 12px 16px;
       text-decoration: none;
-      color: $dark;
+      color: $color-dark;
       font-size: 13px;
-      border-bottom: 2px solid $dark;
+      border-bottom: 2px solid $color-dark;
       transition: background 0.2s ease;
       font-family: $font-mono;
       font-weight: bold;
@@ -264,8 +264,8 @@ $font-mono: 'Courier New', monospace;
 // ═══════════════════════════════════════════════════════════════════
 
 .auth-sidebar {
-  background: $light;
-  border-right: 4px solid $dark;
+  background: $color-light;
+  border-right: 4px solid $color-dark;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -274,7 +274,7 @@ $font-mono: 'Courier New', monospace;
 
   @media (max-width: 768px) {
     border-right: none;
-    border-bottom: 4px solid $dark;
+    border-bottom: 4px solid $color-dark;
     padding: 12px;
     display: flex;
     flex-direction: row;
@@ -291,7 +291,7 @@ $font-mono: 'Courier New', monospace;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: $dark;
+      background: $color-dark;
       border-radius: 0;
     }
   }
@@ -313,12 +313,12 @@ $font-mono: 'Courier New', monospace;
       padding: 12px 14px;
       border-radius: 0;
       text-decoration: none;
-      color: $dark;
+      color: $color-dark;
       font-size: 13px;
       font-weight: bold;
       transition: all 0.2s ease;
-      border: 2px solid $dark;
-      background: $light;
+      border: 2px solid $color-dark;
+      background: $color-light;
       font-family: $font-mono;
       letter-spacing: 1px;
       box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
@@ -334,7 +334,7 @@ $font-mono: 'Courier New', monospace;
 
       &:hover {
         background: $color-accent-yellow;
-        border-color: $dark;
+        border-color: $color-dark;
         transform: translate(-2px, -2px);
         box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
 
@@ -346,8 +346,8 @@ $font-mono: 'Courier New', monospace;
 
       &.active {
         background: $color-accent-red;
-        color: $light;
-        border-color: $dark;
+        color: $color-light;
+        border-color: $color-dark;
         font-weight: 900;
         box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
 
