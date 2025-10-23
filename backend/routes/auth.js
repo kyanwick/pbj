@@ -40,7 +40,8 @@ export const register = async (req, res) => {
         user: {
           id: user.id,
           name: user.name,
-          email: user.email
+          email: user.email,
+          profile_completed: false
         },
         token
       }
@@ -85,6 +86,14 @@ export const login = async (req, res) => {
     // Generate token
     const token = generateToken(user.id)
 
+    // Check if profile exists
+    const profileResult = await query(
+      'SELECT id FROM creator_profiles WHERE user_id = $1',
+      [user.id]
+    )
+
+    const profileCompleted = profileResult.rows.length > 0
+
     res.json({
       success: true,
       message: 'Login successful',
@@ -92,7 +101,8 @@ export const login = async (req, res) => {
         user: {
           id: user.id,
           name: user.name,
-          email: user.email
+          email: user.email,
+          profile_completed: profileCompleted
         },
         token
       }

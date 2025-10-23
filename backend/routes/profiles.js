@@ -85,8 +85,8 @@ export const createProfile = async (req, res) => {
       message: 'Profile saved successfully',
       data: {
         ...profile,
-        brand_sound: JSON.parse(profile.brand_sound),
-        content_formats: JSON.parse(profile.content_formats)
+        brand_sound: typeof profile.brand_sound === 'string' ? JSON.parse(profile.brand_sound) : profile.brand_sound,
+        content_formats: typeof profile.content_formats === 'string' ? JSON.parse(profile.content_formats) : profile.content_formats
       }
     })
   } catch (error) {
@@ -117,8 +117,8 @@ export const getProfile = async (req, res) => {
       success: true,
       data: {
         ...profile,
-        brand_sound: JSON.parse(profile.brand_sound),
-        content_formats: JSON.parse(profile.content_formats)
+        brand_sound: typeof profile.brand_sound === 'string' ? JSON.parse(profile.brand_sound) : profile.brand_sound,
+        content_formats: typeof profile.content_formats === 'string' ? JSON.parse(profile.content_formats) : profile.content_formats
       }
     })
   } catch (error) {
@@ -193,8 +193,8 @@ export const updateProfile = async (req, res) => {
       message: 'Profile updated successfully',
       data: {
         ...profile,
-        brand_sound: JSON.parse(profile.brand_sound),
-        content_formats: JSON.parse(profile.content_formats)
+        brand_sound: typeof profile.brand_sound === 'string' ? JSON.parse(profile.brand_sound) : profile.brand_sound,
+        content_formats: typeof profile.content_formats === 'string' ? JSON.parse(profile.content_formats) : profile.content_formats
       }
     })
   } catch (error) {
