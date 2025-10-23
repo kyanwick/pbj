@@ -184,6 +184,7 @@ const handleRegister = async () => {
     localStorage.setItem('auth_token', data.data.token)
     localStorage.setItem('user_name', data.data.user.name)
     localStorage.setItem('user_id', data.data.user.id)
+    localStorage.setItem('profile_completed', 'false')
 
     // New user - direct to profile form
     router.push('/profile')

@@ -133,6 +133,7 @@ const handleLogin = async () => {
     localStorage.setItem('auth_token', data.data.token)
     localStorage.setItem('user_name', data.data.user.name)
     localStorage.setItem('user_id', data.data.user.id)
+    localStorage.setItem('profile_completed', data.data.user.profile_completed ? 'true' : 'false')
 
     // Check if profile is completed
     if (data.data.user.profile_completed) {

@@ -39,6 +39,7 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     if (typeof window === 'undefined') return next()
 
     const token = window.localStorage.getItem('auth_token')
+    const profileCompleted = window.localStorage.getItem('profile_completed') === 'true'
 
     // If route requires auth and no token, redirect to login
     if (to.matched.some(record => record.meta && record.meta.requiresAuth)) {
@@ -47,8 +48,14 @@ export default defineRouter(function (/* { store, ssrContext } */) {
       }
     }
 
-    // Optional: prevent logged-in users from seeing login/register
+    // Prevent logged-in users from seeing login/register
     if ((to.path === '/login' || to.path === '/register') && token) {
+      return next('/lobby')
+    }
+
+    // If user is logged in but profile not completed, allow access to /profile
+    // If profile IS completed, redirect to /lobby
+    if (to.path === '/profile' && token && profileCompleted) {
       return next('/lobby')
     }
 
