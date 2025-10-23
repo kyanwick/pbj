@@ -7,7 +7,7 @@ import { authenticateUser } from './middleware/auth.js'
 import { runMigrations } from './scripts/migrate.js'
 import { seedDatabase } from './scripts/seed.js'
 
-dotenv.config({ path: '.env.local' })
+dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -66,12 +66,17 @@ async function startServer() {
       console.log('✅ Migrations completed')
     }
 
+    // Only seed in development mode
     if (process.env.NODE_ENV !== 'production') {
-      console.log('🌱 Seeding database...')
-    }
-    await seedDatabase()
-    if (process.env.NODE_ENV !== 'production') {
-      console.log('✅ Database seeded')
+      if (process.env.NODE_ENV !== 'production') {
+        console.log('🌱 Seeding database...')
+      }
+      await seedDatabase()
+      if (process.env.NODE_ENV !== 'production') {
+        console.log('✅ Database seeded')
+      }
+    } else {
+      console.log('⏭️  Skipping database seeding in production')
     }
   } catch (error) {
     console.error('❌ Migration/seed error:', error)
