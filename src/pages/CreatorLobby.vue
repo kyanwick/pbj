@@ -1,96 +1,103 @@
 <template>
   <div class="creator-lobby">
-    <!-- Welcome Section -->
-    <section class="welcome-section">
-      <h1 class="welcome-title">Welcome back, Creator</h1>
-      <p class="welcome-subtitle">Your authentic voice, amplified ethically</p>
-    </section>
-
-    <!-- Main Grid -->
-    <div class="lobby-grid">
-      <!-- Left Column: Start Creating (Primary CTA) -->
-      <section class="grid-item start-creating">
-        <div class="card-content">
-          <div class="icon-large">🎨</div>
-          <h2>Start Creating</h2>
-          <p>Generate authentic content that matches your brand voice</p>
-          <button class="btn-action-primary">
-            Begin →
-          </button>
-        </div>
-        <div class="card-accent top-left"></div>
-        <div class="card-accent bottom-right"></div>
-      </section>
-
-      <!-- Right Column: Two Stacked Cards -->
-      <div class="grid-right">
-        <!-- Your Latest Drafts -->
-        <section class="grid-item latest-drafts">
-          <div class="card-header">
-            <h3>Your Latest Drafts</h3>
-            <span class="badge">3</span>
-          </div>
-          <div class="drafts-list">
-            <div class="draft-item">
-              <div class="draft-icon">📝</div>
-              <div class="draft-info">
-                <div class="draft-title">Q4 Product Launch Announcement</div>
-                <div class="draft-meta">LinkedIn • Oct 22</div>
-              </div>
-              <button class="btn-icon">→</button>
-            </div>
-            <div class="draft-item">
-              <div class="draft-icon">🎥</div>
-              <div class="draft-info">
-                <div class="draft-title">Behind-the-Scenes Content Series</div>
-                <div class="draft-meta">TikTok • Oct 20</div>
-              </div>
-              <button class="btn-icon">→</button>
-            </div>
-            <div class="draft-item">
-              <div class="draft-icon">💬</div>
-              <div class="draft-info">
-                <div class="draft-title">Industry Insights Thread</div>
-                <div class="draft-meta">Twitter • Oct 18</div>
-              </div>
-              <button class="btn-icon">→</button>
-            </div>
-          </div>
-          <button class="btn-secondary">View All Drafts</button>
-        </section>
-
-        <!-- Community Updates -->
-        <section class="grid-item community-updates">
-          <div class="card-header">
-            <h3>Community Pulse</h3>
-            <span class="icon-new">✨</span>
-          </div>
-          <div class="updates-placeholder">
-            <div class="placeholder-icon">🌍</div>
-            <p>See what creators are sharing</p>
-            <p class="placeholder-subtext">Coming soon</p>
-          </div>
-        </section>
-      </div>
+    <!-- Animated Banner -->
+    <div class="lobby-banner">
+      ⚡ YOU'RE IN! ⚡ LET'S CREATE SOMETHING AMAZING ⚡ YOUR VOICE. YOUR CONTENT. ⚡
     </div>
 
-    <!-- Quick Stats -->
-    <section class="quick-stats">
-      <div class="stat-box">
-        <div class="stat-value">12</div>
-        <div class="stat-label">Drafts</div>
+    <!-- Welcome Hero -->
+    <section class="welcome-hero">
+      <div class="welcome-content">
+        <div class="welcome-emoji">🎨</div>
+        <h1 class="welcome-title">LET'S CREATE MAGIC</h1>
+        <p class="welcome-subtitle">Your authentic voice, amplified ethically</p>
+        <button class="cta-huge">START CREATING NOW →</button>
       </div>
-      <div class="stat-box">
-        <div class="stat-value">8</div>
-        <div class="stat-label">Published</div>
+    </section>
+
+    <!-- Main Action Cards Grid -->
+    <section class="cards-section">
+      <div class="action-card primary-card">
+        <div class="card-emoji">✨</div>
+        <h2>GENERATE CONTENT</h2>
+        <p>AI-powered ideas that match YOUR voice</p>
+        <button class="card-btn primary">Begin →</button>
       </div>
-      <div class="stat-box">
-        <div class="stat-value">2.4K</div>
-        <div class="stat-label">Reach</div>
+
+      <div class="action-card">
+        <div class="card-emoji">📅</div>
+        <h2>SCHEDULE POSTS</h2>
+        <p>Auto-publish to all your platforms</p>
+        <button class="card-btn">Manage →</button>
       </div>
-      <div class="stat-box">
-        <div class="stat-value">342</div>
-        <div class="stat-label">Engaged</div>
+
+      <div class="action-card">
+        <div class="card-emoji">🎯</div>
+        <h2>BRAND KIT</h2>
+        <p>Manage colors, fonts, tone of voice</p>
+        <button class="card-btn">Setup →</button>
+      </div>
+
+      <div class="action-card">
+        <div class="card-emoji">📊</div>
+        <h2>ANALYTICS</h2>
+        <p>Track reach, engagement, growth</p>
+        <button class="card-btn">View →</button>
+      </div>
+    </section>
+
+    <!-- Latest Drafts Section -->
+    <section class="drafts-section">
+      <div class="section-header">
+        <h2>YOUR LATEST DRAFTS</h2>
+        <span class="draft-count">3</span>
+      </div>
+      <div class="drafts-grid">
+        <div class="draft-card">
+          <div class="draft-emoji">📝</div>
+          <div class="draft-details">
+            <h3>Q4 Product Launch</h3>
+            <p>LinkedIn • Oct 22</p>
+          </div>
+          <button class="draft-btn">→</button>
+        </div>
+        <div class="draft-card">
+          <div class="draft-emoji">🎥</div>
+          <div class="draft-details">
+            <h3>Behind-the-Scenes</h3>
+            <p>TikTok • Oct 20</p>
+          </div>
+          <button class="draft-btn">→</button>
+        </div>
+        <div class="draft-card">
+          <div class="draft-emoji">💬</div>
+          <div class="draft-details">
+            <h3>Industry Insights</h3>
+            <p>Twitter • Oct 18</p>
+          </div>
+          <button class="draft-btn">→</button>
+        </div>
+      </div>
+      <button class="view-all-btn">VIEW ALL DRAFTS →</button>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-big">12</div>
+        <div class="stat-small">DRAFTS</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-big">8</div>
+        <div class="stat-small">PUBLISHED</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-big">2.4K</div>
+        <div class="stat-small">REACH</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-big">342</div>
+        <div class="stat-small">ENGAGED</div>
       </div>
     </section>
   </div>
@@ -101,443 +108,422 @@
 </script>
 
 <style scoped lang="scss">
-// Design Tokens
-$color-primary: #667eea;
-$color-secondary: #764ba2;
-$color-accent-red: #ff6b6b;
-$color-accent-yellow: #feca57;
-$color-accent-cyan: #48dbfb;
-$color-dark: #1a1a2e;
-$color-light: #f5f7fa;
-$color-border: #e0e0e0;
-$font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$primary: #667eea;
+$secondary: #764ba2;
+$accent1: #ff6b6b;
+$accent2: #feca57;
+$accent3: #48dbfb;
+$dark: #000;
+$light: #fff;
 
 .creator-lobby {
-  font-family: $font-sans;
-  max-width: 1000px;
+  background: #f9f9f9;
+  font-family: 'Courier New', monospace;
+  padding-bottom: 40px;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// BANNER
+// ═══════════════════════════════════════════════════════════════════
+
+.lobby-banner {
+  background: linear-gradient(90deg, $accent1 0%, $accent2 25%, $accent3 50%, #ff9ff3 75%, $accent1 100%);
+  padding: 10px 0;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: $dark;
+  letter-spacing: 2px;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: scrollBanner 20s linear infinite;
+
+  @keyframes scrollBanner {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// WELCOME HERO
+// ═══════════════════════════════════════════════════════════════════
+
+.welcome-hero {
+  background: linear-gradient(135deg, $primary 0%, $secondary 100%);
+  padding: 80px 20px;
+  text-align: center;
+  border-bottom: 6px solid $accent1;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '🎨✨🎨✨🎨✨🎨✨🎨✨🎨✨🎨✨';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    font-size: 28px;
+    opacity: 0.15;
+    animation: float 20s infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.welcome-emoji {
+  font-size: 72px;
+  margin-bottom: 20px;
+  animation: bounce 2s ease-in-out infinite;
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+.welcome-title {
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: $light;
+  text-shadow: 5px 5px 0 rgba($dark, 0.4), 8px 8px 0 rgba($dark, 0.2);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.welcome-subtitle {
+  font-size: 16px;
+  color: rgba($light, 0.9);
+  margin: 0 0 24px 0;
+  font-style: italic;
+}
+
+.cta-huge {
+  background: linear-gradient(135deg, $accent2, $accent1);
+  border: 3px solid $dark;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: $dark;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 6px 6px 0 rgba($dark, 0.3);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+
+  &:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 rgba($dark, 0.3);
+  }
+
+  &:active {
+    transform: translate(0);
+    box-shadow: 3px 3px 0 rgba($dark, 0.3);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// ACTION CARDS
+// ═══════════════════════════════════════════════════════════════════
+
+.cards-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 40px 20px;
+  max-width: 1200px;
   margin: 0 auto;
 
-  // ═══════════════════════════════════════════════════════════════════
-  // WELCOME SECTION
-  // ═══════════════════════════════════════════════════════════════════
-
-  .welcome-section {
-    text-align: center;
-    margin-bottom: 40px;
-
-    @media (max-width: 768px) {
-      margin-bottom: 30px;
-    }
-
-    .welcome-title {
-      font-size: 36px;
-      font-weight: 900;
-      color: $color-dark;
-      margin: 0 0 8px 0;
-      background: linear-gradient(135deg, $color-primary, $color-secondary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-
-      @media (max-width: 768px) {
-        font-size: 26px;
-      }
-    }
-
-    .welcome-subtitle {
-      font-size: 15px;
-      color: #999;
-      margin: 0;
-      font-style: italic;
-
-      @media (max-width: 768px) {
-        font-size: 13px;
-      }
-    }
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 30px 16px;
   }
 
-  // ═══════════════════════════════════════════════════════════════════
-  // GRID
-  // ═══════════════════════════════════════════════════════════════════
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px 12px;
+  }
+}
 
-  .lobby-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 24px;
-    margin-bottom: 30px;
+.action-card {
+  background: $light;
+  border: 4px solid $dark;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0 rgba($dark, 0.2);
+  position: relative;
+  overflow: hidden;
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: 20px;
-    }
+  &:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 rgba($dark, 0.2);
   }
 
-  // Grid Items
-  .grid-item {
-    background: white;
-    border: 2px solid $color-border;
-    border-radius: 12px;
-    padding: 24px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-
-    &:hover {
-      border-color: $color-primary;
-      box-shadow: 0 8px 24px rgba($color-primary, 0.15);
-    }
-
-    @media (max-width: 768px) {
-      padding: 20px;
-    }
-  }
-
-  // Card Accents
-  .card-accent {
+  &::before {
+    content: '';
     position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba($color-primary, 0.1), rgba($color-secondary, 0.1));
-    pointer-events: none;
-
-    &.top-left {
-      top: -40px;
-      left: -40px;
-    }
-
-    &.bottom-right {
-      bottom: -40px;
-      right: -40px;
-      background: linear-gradient(135deg, rgba($color-accent-yellow, 0.1), rgba($color-accent-red, 0.1));
-    }
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, $accent1, $accent2, $accent3);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
   }
 
-  // ═══════════════════════════════════════════════════════════════════
-  // START CREATING
-  // ═══════════════════════════════════════════════════════════════════
-
-  .start-creating {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 350px;
-    background: linear-gradient(135deg, rgba($color-primary, 0.03), rgba($color-secondary, 0.03));
-    grid-row: span 2;
-
-    @media (max-width: 768px) {
-      grid-row: auto;
-      min-height: 280px;
-    }
-
-    .card-content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .icon-large {
-      font-size: 56px;
-      animation: floatIcon 3s ease-in-out infinite;
-
-      @keyframes floatIcon {
-        0%, 100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
-      }
-    }
-
-    h2 {
-      font-size: 26px;
-      font-weight: 800;
-      color: $color-dark;
-      margin: 0;
-
-      @media (max-width: 768px) {
-        font-size: 20px;
-      }
-    }
-
-    p {
-      font-size: 13px;
-      color: #777;
-      margin: 0;
-      max-width: 260px;
-      line-height: 1.4;
-    }
+  &:hover::before {
+    opacity: 0.1;
   }
 
-  .btn-action-primary {
-    background: linear-gradient(135deg, $color-accent-yellow, $color-accent-red);
-    color: white;
-    border: none;
-    padding: 11px 28px;
-    border-radius: 8px;
-    font-weight: 700;
+  &.primary-card {
+    border-color: $accent1;
+    background: linear-gradient(135deg, rgba($accent2, 0.1), rgba($accent1, 0.05));
+  }
+}
+
+.card-emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.action-card h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: $dark;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+}
+
+.action-card p {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+
+.card-btn {
+  background: $primary;
+  border: 2px solid $dark;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  color: $light;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  transition: all 0.2s ease;
+  box-shadow: 3px 3px 0 rgba($dark, 0.2);
+
+  &:hover {
+    background: $secondary;
+    transform: translate(-2px, -2px);
+  }
+
+  &.primary {
+    background: linear-gradient(135deg, $accent2, $accent1);
+    color: $dark;
+    box-shadow: 3px 3px 0 rgba($dark, 0.3);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// DRAFTS SECTION
+// ═══════════════════════════════════════════════════════════════════
+
+.drafts-section {
+  background: $light;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  border: 4px solid $dark;
+  box-shadow: 6px 6px 0 rgba($dark, 0.2);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: $dark;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .draft-count {
+    background: linear-gradient(135deg, $accent3, $primary);
+    color: $light;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
     font-size: 14px;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba($color-accent-red, 0.3);
+  }
+}
 
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba($color-accent-red, 0.4);
-    }
+.drafts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
 
-    &:active {
-      transform: translateY(-1px);
-    }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.draft-card {
+  background: #f9f9f9;
+  border: 3px solid $dark;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 3px 3px 0 rgba($dark, 0.15);
+
+  &:hover {
+    background: $accent2;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 rgba($dark, 0.15);
+  }
+}
+
+.draft-emoji {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.draft-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.draft-details h3 {
+  font-size: 13px;
+  font-weight: bold;
+  color: $dark;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.draft-details p {
+  font-size: 11px;
+  color: #888;
+  margin: 0;
+}
+
+.draft-btn {
+  background: $primary;
+  border: 2px solid $dark;
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: $light;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0 rgba($dark, 0.2);
+
+  &:hover {
+    background: $accent1;
+    transform: translate(-1px, -1px);
+  }
+}
+
+.view-all-btn {
+  display: block;
+  width: 100%;
+  background: $dark;
+  color: $light;
+  border: 3px solid $dark;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0 rgba($dark, 0.3);
+
+  &:hover {
+    background: $primary;
+    color: $light;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba($dark, 0.3);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// STATS BAR
+// ═══════════════════════════════════════════════════════════════════
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
-  // ═══════════════════════════════════════════════════════════════════
-  // RIGHT COLUMN
-  // ═══════════════════════════════════════════════════════════════════
-
-  .grid-right {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-
-    @media (max-width: 768px) {
-      gap: 20px;
-    }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
   }
+}
 
-  // ═══════════════════════════════════════════════════════════════════
-  // LATEST DRAFTS
-  // ═══════════════════════════════════════════════════════════════════
+.stat-item {
+  background: linear-gradient(135deg, $primary, $secondary);
+  border: 3px solid $dark;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 4px 4px 0 rgba($dark, 0.2);
+  transition: all 0.2s ease;
 
-  .latest-drafts {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 4px;
-
-      h3 {
-        font-size: 17px;
-        font-weight: 700;
-        color: $color-dark;
-        margin: 0;
-      }
-
-      .badge {
-        background: linear-gradient(135deg, $color-accent-cyan, $color-primary);
-        color: white;
-        padding: 3px 10px;
-        border-radius: 20px;
-        font-size: 11px;
-        font-weight: 600;
-      }
-    }
-
-    .drafts-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .draft-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px;
-      background: $color-light;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-      cursor: pointer;
-
-      &:hover {
-        background: #f0f2f5;
-        transform: translateX(3px);
-      }
-
-      .draft-icon {
-        font-size: 18px;
-        flex-shrink: 0;
-      }
-
-      .draft-info {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .draft-title {
-        font-size: 12px;
-        font-weight: 600;
-        color: $color-dark;
-        margin: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .draft-meta {
-        font-size: 10px;
-        color: #aaa;
-        margin-top: 2px;
-      }
-
-      .btn-icon {
-        background: none;
-        border: none;
-        color: $color-primary;
-        font-size: 14px;
-        cursor: pointer;
-        padding: 4px 6px;
-        border-radius: 4px;
-        transition: all 0.2s ease;
-
-        &:hover {
-          background: white;
-          color: $color-secondary;
-        }
-      }
-    }
+  &:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0 rgba($dark, 0.2);
   }
+}
 
-  .btn-secondary {
-    background: white;
-    border: 2px solid $color-primary;
-    color: $color-primary;
-    padding: 9px 18px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin-top: 6px;
+.stat-big {
+  font-size: 36px;
+  font-weight: bold;
+  color: $light;
+  text-shadow: 3px 3px 0 rgba($dark, 0.3);
+  margin: 0;
+}
 
-    &:hover {
-      background: linear-gradient(135deg, rgba($color-primary, 0.1), rgba($color-secondary, 0.1));
-      transform: translateY(-2px);
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
-  }
-
-  // ═══════════════════════════════════════════════════════════════════
-  // COMMUNITY UPDATES
-  // ═══════════════════════════════════════════════════════════════════
-
-  .community-updates {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    min-height: 200px;
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      h3 {
-        font-size: 17px;
-        font-weight: 700;
-        color: $color-dark;
-        margin: 0;
-      }
-
-      .icon-new {
-        font-size: 15px;
-      }
-    }
-
-    .updates-placeholder {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 10px;
-      padding: 20px;
-
-      .placeholder-icon {
-        font-size: 42px;
-        opacity: 0.4;
-      }
-
-      p {
-        font-size: 12px;
-        color: #aaa;
-        margin: 0;
-      }
-
-      .placeholder-subtext {
-        font-size: 11px;
-        color: #ddd;
-        font-style: italic;
-      }
-    }
-  }
-
-  // ═══════════════════════════════════════════════════════════════════
-  // QUICK STATS
-  // ═══════════════════════════════════════════════════════════════════
-
-  .quick-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    @media (max-width: 480px) {
-      grid-template-columns: 1fr;
-    }
-
-    .stat-box {
-      background: white;
-      border: 2px solid $color-border;
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-      transition: all 0.2s ease;
-
-      &:hover {
-        border-color: $color-primary;
-        box-shadow: 0 4px 12px rgba($color-primary, 0.1);
-        transform: translateY(-2px);
-      }
-
-      .stat-value {
-        font-size: 22px;
-        font-weight: 800;
-        background: linear-gradient(135deg, $color-primary, $color-secondary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin: 0;
-      }
-
-      .stat-label {
-        font-size: 11px;
-        color: #999;
-        margin-top: 6px;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-    }
-  }
+.stat-small {
+  font-size: 11px;
+  color: rgba($light, 0.9);
+  margin-top: 6px;
+  letter-spacing: 1px;
+  font-weight: bold;
 }
 </style>
