@@ -30,8 +30,8 @@
 
     <!-- Main Layout -->
     <div class="auth-layout">
-      <!-- Sidebar -->
-      <aside class="auth-sidebar">
+      <!-- Sidebar (hidden on profile form) -->
+      <aside v-if="$route.path !== '/profile'" class="auth-sidebar">
         <nav class="sidebar-nav">
           <router-link to="/lobby" class="nav-item" :class="{ active: $route.path === '/lobby' }">
             <span class="nav-icon">✨</span>
