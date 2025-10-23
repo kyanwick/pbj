@@ -47,3 +47,10 @@ git push origin main
 ```
 
 This will ensure `main` has all the code from `master` and future merges will work normally.
+
+## Security Notes
+During the merge, a security scan was performed on the code. The following non-critical issues were identified in the pre-existing code (from the master branch):
+
+- **Missing rate limiting**: The backend API routes (lines 38-40 in `backend/server.js`) do not have rate limiting implemented. This could make the API vulnerable to denial-of-service attacks.
+
+**Recommendation**: Consider adding rate limiting middleware (e.g., using `express-rate-limit` package) to protect the API endpoints in a future update.
