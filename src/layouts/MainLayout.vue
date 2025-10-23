@@ -9,15 +9,14 @@
         </div>
         <nav class="nav-links">
           <router-link to="/">HOME</router-link>
-          <router-link to="/lobby">LOBBY</router-link>
           <router-link to="/features">FEATURES</router-link>
           <router-link to="/pricing">PRICING</router-link>
           <router-link to="/blog">BLOG</router-link>
           <router-link to="/docs">DOCS</router-link>
         </nav>
         <div class="header-cta">
-          <button class="sign-in">SIGN IN</button>
-          <button class="get-started">GET STARTED</button>
+          <router-link to="/login" class="sign-in">SIGN IN</router-link>
+          <router-link to="/register" class="get-started">GET STARTED</router-link>
         </div>
       </div>
     </header>
@@ -187,6 +186,10 @@ $light: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sign-in {

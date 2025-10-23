@@ -104,8 +104,7 @@ $font-mono: 'Courier New', monospace;
 .auth-header {
   background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
   border-bottom: 5px solid $color-accent-red;
-  position: sticky;
-  top: 0;
+  position: static;
   z-index: 100;
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
 
