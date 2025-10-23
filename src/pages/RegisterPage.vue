@@ -190,7 +190,9 @@ const handleRegister = async () => {
     router.push('/profile')
   } catch (error) {
     errors.general = 'Connection error. Please try again.'
-    console.error('Registration error:', error)
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('Registration error:', error)
+    }
   } finally {
     isLoading.value = false
   }

@@ -145,7 +145,9 @@ const handleLogin = async () => {
     }
   } catch (error) {
     errors.general = 'Connection error. Please try again.'
-    console.error('Login error:', error)
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('Login error:', error)
+    }
   } finally {
     isLoading.value = false
   }
