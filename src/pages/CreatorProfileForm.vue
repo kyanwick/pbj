@@ -29,14 +29,7 @@
         <div class="form-group">
           <label for="name">What's your name?</label>
           <p class="help-text">First name is fine, or whatever you go by online</p>
-          <input
-            v-model="form.name"
-            type="text"
-            id="name"
-            placeholder="Your name"
-            required
-            class="form-input"
-          />
+          <input v-model="form.name" type="text" id="name" placeholder="Your name" required class="form-input" />
           <span v-if="errors.name" class="error-text">{{ errors.name }}</span>
         </div>
 
@@ -47,14 +40,8 @@
             In one sentence, what's your thing? (e.g., "I'm a fitness coach who
             helps busy moms get strong without spending hours at the gym")
           </p>
-          <textarea
-            v-model="form.whatYouDo"
-            id="whatYouDo"
-            placeholder="Your thing in one sentence..."
-            rows="3"
-            required
-            class="form-textarea"
-          ></textarea>
+          <textarea v-model="form.whatYouDo" id="whatYouDo" placeholder="Your thing in one sentence..." rows="3"
+            required class="form-textarea"></textarea>
           <span v-if="errors.whatYouDo" class="error-text">{{ errors.whatYouDo }}</span>
         </div>
 
@@ -65,14 +52,8 @@
             List 3-7 topics you talk about most (e.g., strength training, meal
             prep, mindset, time management)
           </p>
-          <textarea
-            v-model="form.categories"
-            id="categories"
-            placeholder="• Topic 1&#10;• Topic 2&#10;• Topic 3"
-            rows="4"
-            required
-            class="form-textarea"
-          ></textarea>
+          <textarea v-model="form.categories" id="categories" placeholder="• Topic 1&#10;• Topic 2&#10;• Topic 3"
+            rows="4" required class="form-textarea"></textarea>
           <span v-if="errors.categories" class="error-text">{{ errors.categories }}</span>
         </div>
       </section>
@@ -87,13 +68,8 @@
           <p class="help-text">Pick the 3 that feel most like you</p>
           <div class="checkbox-group">
             <label v-for="option in brandSoundOptions" :key="option" class="checkbox-label">
-              <input
-                type="checkbox"
-                :value="option"
-                v-model="form.brandSound"
-                @change="validateBrandSound"
-                class="checkbox-input"
-              />
+              <input type="checkbox" :value="option" v-model="form.brandSound" @change="validateBrandSound"
+                class="checkbox-input" />
               <span>{{ option }}</span>
             </label>
           </div>
@@ -106,13 +82,7 @@
           <p class="help-text">How do you like to create content?</p>
           <div class="radio-group">
             <label v-for="option in scriptStyleOptions" :key="option" class="radio-label">
-              <input
-                type="radio"
-                :value="option"
-                v-model="form.scriptStyle"
-                required
-                class="radio-input"
-              />
+              <input type="radio" :value="option" v-model="form.scriptStyle" required class="radio-input" />
               <span class="radio-text">
                 <strong>{{ option }}</strong>
                 <span class="radio-description">
@@ -130,12 +100,7 @@
           <p class="help-text">Select all that you're comfortable recording</p>
           <div class="checkbox-group">
             <label v-for="format in contentFormatOptions" :key="format" class="checkbox-label">
-              <input
-                type="checkbox"
-                :value="format"
-                v-model="form.contentFormats"
-                class="checkbox-input"
-              />
+              <input type="checkbox" :value="format" v-model="form.contentFormats" class="checkbox-input" />
               <span>{{ format }}</span>
             </label>
           </div>
@@ -149,13 +114,8 @@
             Name 1-3 brands or creators whose content makes you think: "THAT'S
             what I want mine to feel like"
           </p>
-          <textarea
-            v-model="form.inspiration"
-            id="inspiration"
-            placeholder="Creator name or brand..."
-            rows="3"
-            class="form-textarea"
-          ></textarea>
+          <textarea v-model="form.inspiration" id="inspiration" placeholder="Creator name or brand..." rows="3"
+            class="form-textarea"></textarea>
         </div>
       </section>
 
@@ -176,13 +136,8 @@
             Things that make you think "that's not the full story" or "that's
             just wrong"
           </p>
-          <textarea
-            v-model="form.disagreements"
-            id="disagreements"
-            placeholder="Your disagreements with industry norms..."
-            rows="4"
-            class="form-textarea"
-          ></textarea>
+          <textarea v-model="form.disagreements" id="disagreements"
+            placeholder="Your disagreements with industry norms..." rows="4" class="form-textarea"></textarea>
         </div>
 
         <!-- Creator Turn-offs -->
@@ -194,13 +149,8 @@
             The stuff that makes you think "this is exactly why I DON'T want to
             make content like that"
           </p>
-          <textarea
-            v-model="form.turnoffs"
-            id="turnoffs"
-            placeholder="Creator behaviors or tactics you want to avoid..."
-            rows="4"
-            class="form-textarea"
-          ></textarea>
+          <textarea v-model="form.turnoffs" id="turnoffs"
+            placeholder="Creator behaviors or tactics you want to avoid..." rows="4" class="form-textarea"></textarea>
         </div>
       </section>
 
@@ -214,13 +164,8 @@
           <p class="help-text">
             The FAQs that show up in DMs, comments, or conversations
           </p>
-          <textarea
-            v-model="form.faqs"
-            id="faqs"
-            placeholder="• Question 1?&#10;• Question 2?&#10;• Question 3?"
-            rows="4"
-            class="form-textarea"
-          ></textarea>
+          <textarea v-model="form.faqs" id="faqs" placeholder="• Question 1?&#10;• Question 2?&#10;• Question 3?"
+            rows="4" class="form-textarea"></textarea>
         </div>
 
         <!-- Industry Myths -->
@@ -230,13 +175,8 @@
             Lies, outdated advice, or things people believe that just aren't
             true
           </p>
-          <textarea
-            v-model="form.myths"
-            id="myths"
-            placeholder="• Myth 1&#10;• Myth 2&#10;• Myth 3"
-            rows="4"
-            class="form-textarea"
-          ></textarea>
+          <textarea v-model="form.myths" id="myths" placeholder="• Myth 1&#10;• Myth 2&#10;• Myth 3" rows="4"
+            class="form-textarea"></textarea>
         </div>
 
         <!-- Topics to Avoid -->
@@ -245,13 +185,8 @@
           <p class="help-text">
             Anything off-limits or not aligned with your brand?
           </p>
-          <textarea
-            v-model="form.avoidTopics"
-            id="avoidTopics"
-            placeholder="Topics to avoid..."
-            rows="3"
-            class="form-textarea"
-          ></textarea>
+          <textarea v-model="form.avoidTopics" id="avoidTopics" placeholder="Topics to avoid..." rows="3"
+            class="form-textarea"></textarea>
         </div>
       </section>
 
@@ -459,16 +394,16 @@ const handleSubmit = async () => {
     successMessage.value = '🎉 Profile saved! Ready to start creating?'
 
     setTimeout(() => {
-        router.push('/lobby')
-      }, 2000)
-    } catch (err) {
-      errors.value.submit = err.message || 'Failed to save profile. Please try again.'
-      if (process.env.NODE_ENV !== 'production') {
-        console.error('Profile submission error:', err)
-      }
-    } finally {
-      isSubmitting.value = false
+      router.push('/lobby')
+    }, 2000)
+  } catch (err) {
+    errors.value.submit = err.message || 'Failed to save profile. Please try again.'
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('Profile submission error:', err)
     }
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
@@ -485,10 +420,13 @@ $font-mono: 'Courier New', monospace;
 
 .profile-form-container {
   max-width: 800px;
+  width: 100%;
   margin: 0 auto;
   padding: 60px 24px;
   background: $light;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-header {
@@ -741,6 +679,7 @@ $font-mono: 'Courier New', monospace;
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

@@ -29,7 +29,7 @@
     </header>
 
     <!-- Main Layout -->
-    <div class="auth-layout">
+    <div class="auth-layout" :class="{ 'no-sidebar': $route.path === '/profile' }">
       <!-- Sidebar (hidden on profile form) -->
       <aside v-if="$route.path !== '/profile'" class="auth-sidebar">
         <nav class="sidebar-nav">
@@ -81,7 +81,7 @@ onMounted(() => {
   // Check if user is authenticated
   const token = localStorage.getItem('auth_token')
   const name = localStorage.getItem('user_name')
-  
+
   if (!token) {
     // Not authenticated - redirect to login
     setTimeout(() => {
@@ -89,7 +89,7 @@ onMounted(() => {
     }, 0)
     return
   }
-  
+
   if (name) {
     userName.value = name
   }
@@ -149,34 +149,34 @@ $font-mono: 'Courier New', monospace;
   }
 
   .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: $color-light;
-  text-shadow: 2px 2px 0 $color-dark;
-  letter-spacing: 3px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $color-light;
+    text-shadow: 2px 2px 0 $color-dark;
+    letter-spacing: 3px;
   }
 
   .tagline {
-   font-size: 9px;
-   color: $color-accent-yellow;
-   letter-spacing: 1px;
-   margin-top: 3px;
-   text-transform: uppercase;
+    font-size: 9px;
+    color: $color-accent-yellow;
+    letter-spacing: 1px;
+    margin-top: 3px;
+    text-transform: uppercase;
   }
 
   .logo-section {
-  background: linear-gradient(135deg, $primary, $secondary);
-  padding: 12px;
-  border: 2px solid $color-light;
-  box-shadow: 4px 4px 0 rgba($color-accent-yellow, 0.6);
-  cursor: pointer;
-  transition: all 0.2s;
+    background: linear-gradient(135deg, $primary, $secondary);
+    padding: 12px;
+    border: 2px solid $color-light;
+    box-shadow: 4px 4px 0 rgba($color-accent-yellow, 0.6);
+    cursor: pointer;
+    transition: all 0.2s;
 
-  &:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 2px 0 rgba($color-accent-yellow, 0.8);
+    &:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 2px 0 rgba($color-accent-yellow, 0.8);
+    }
   }
-}
 
   .header-spacer {
     flex: 1;
@@ -302,6 +302,10 @@ $font-mono: 'Courier New', monospace;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
   }
+
+  &.no-sidebar {
+    grid-template-columns: 1fr;
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -420,19 +424,18 @@ $font-mono: 'Courier New', monospace;
 // ═══════════════════════════════════════════════════════════════════
 
 .auth-content {
-  padding: 30px 20px;
+  padding: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
 
   @media (max-width: 768px) {
-    padding: 20px 12px;
+    padding: 0;
   }
 
-  > * {
+  >* {
     width: 100%;
-    max-width: 1200px;
   }
 }
 </style>
