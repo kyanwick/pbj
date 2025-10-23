@@ -37,7 +37,9 @@ src/
 
 ### Component Organization
 - **Page components** (in `pages/`) use lazy-loading via `import()` to reduce bundle size
-- **Layouts** wrap pages with Quasar layout components (`q-layout`, `q-header`, `q-drawer`)
+- **Layouts** wrap pages with persistent UI (header, sidebar, etc.)
+  - `MainLayout.vue` — Public pages (landing, features, pricing, docs)
+  - `AuthLayout.vue` — Authenticated pages (dashboard, creator tools, settings)
 - **Reusable components** stored in `components/` directory
 - All pages use Vue 3 `<script setup>` syntax (preferred pattern)
 
@@ -109,7 +111,9 @@ npm run format           # Auto-format with Prettier
 | File | Purpose | When to Change |
 |------|---------|-----------------|
 | `src/router/routes.js` | All routes defined here | Adding new pages/layouts |
-| `src/layouts/MainLayout.vue` | Primary app shell | Modify header, drawer, navigation |
+| `src/layouts/MainLayout.vue` | Primary landing page shell | Modify header, nav (public pages) |
+| `src/layouts/AuthLayout.vue` | Authenticated user shell | Modify header, sidebar (logged-in pages) |
+| `src/pages/CreatorLobby.vue` | Main dashboard after login | Customize dashboard sections, cards, stats |
 | `quasar.config.js` | Build & framework config | Change port, add plugins, modify build targets |
 | `src/css/app.scss` | Global styles | Add app-wide CSS |
 | `.eslint.config.js` | Linting rules | Update rule severity, add plugins |
@@ -118,19 +122,131 @@ npm run format           # Auto-format with Prettier
 
 ---
 
-## Common Tasks & Patterns
+## Deployment & DevOps
 
-### Adding a New Page
+### Local Development
+```bash
+npm run dev
+```
+- Starts dev server on **http://localhost:9001**
+- Hot-reload enabled (auto-refresh on file changes)
+- Uses Node v20.18.0+ (enforced)
+
+### Production Deployment (Automatic via GitHub Actions)
+**Trigger**: Commit + push to `master` branch
+```bash
+git add .
+git commit -m "your changes"
+git push pbj-saas master  # or: git push origin master
+```
+
+**What Happens Automatically**:
+1. ✅ GitHub Actions workflow triggered (`.github/workflows/deploy.yml`)
+2. 🔐 SSH into server using deploy key (`DEPLOY_KEY` secret)
+3. 📥 Pull latest code from GitHub (`git reset --hard origin/master`)
+4. 🚀 Run deployment script (`./scripts/deploy.sh`)
+5. 📦 Rebuild Docker image (builds frontend during Docker build)
+6. 🔄 Restart containers (`docker-compose up -d`)
+7. 🌐 Update **https://pb.kyanoberas.com** (live in ~30 seconds)
+
+**View Deployment Progress**:
+- Go to GitHub repo → **Actions** tab
+- Click latest workflow run to see logs
+- Each step shows build output, Docker rebuild status, container startup
+
+### Manual Production Deployment
+If needed to deploy manually:
+```bash
+cd /home/kyanwick/saas/saas
+./scripts/deploy.sh
+```
+This runs the same steps as GitHub Actions.
+
+### Environment Setup (First-Time Only)
+1. **GitHub Secrets** (repo → Settings → Secrets and variables → Actions):
+   - `DEPLOY_HOST`: Server hostname/IP
+   - `DEPLOY_USER`: SSH username (`kyanwick`)
+   - `DEPLOY_KEY`: SSH private key (ed25519 format)
+
+2. **Server Setup** (already done):
+   - SSH key added to `~/.ssh/authorized_keys`
+   - Sudoers configured for passwordless docker/deploy commands
+   - Storage directories created on `/mnt/elitecloud/`
+
+---
+
+## Authenticated Dashboard (Creator Lobby)
+
+**Route**: `/lobby`
+
+**What Users See**: After logging in and paying for membership, users land on the Creator Lobby — their main dashboard.
+
+**Design Philosophy**: Minimalist-maximalist blend (playful, colorful, retro-web energy) balanced by simplicity and clarity. Goal: Users feel ready to create immediately.
+
+### Architecture
+
+**AuthLayout.vue** (Persistent wrapper):
+- Sticky header with PB+J logo, "Create" CTA, profile dropdown
+- Left sidebar with navigation: Dashboard, Create, Library, Schedule, Analytics
+- Main content area (router-view)
+- Responsive: Desktop sidebar → Mobile horizontal nav bar
+
+**CreatorLobby.vue** (Page content):
+- Welcome section (personalized greeting)
+- Main grid: 
+  - Left: Big "Start Creating" CTA card with floating emoji
+  - Right top: "Your Latest Drafts" (3 mock drafts with platform tags)
+  - Right bottom: "Community Pulse" (placeholder for future feature)
+- Bottom: Quick stats (12 Drafts, 8 Published, 2.4K Reach, 342 Engaged)
+
+### Visual Design
+
+**Color Scheme**:
+- Primary gradient: purple/indigo (667eea → 764ba2)
+- Accent red (ff6b6b), Accent yellow (feca57), Accent cyan (48dbfb)
+- Dark text (1a1a2e), Light bg (f5f7fa), Borders (e0e0e0)
+
+**Key Elements**:
+- Card-based layout with 2px borders, subtle shadows on hover
+- Gradient accents on buttons, badges
+- Animated floating emoji on primary CTA
+- Responsive grid: 2-column desktop → 1-column mobile
+- All buttons have hover states (elevation, color shift)
+
+### Extending the Dashboard
+
+**Add New Card**: In `CreatorLobby.vue`:
+```vue
+<section class="grid-item new-feature">
+  <div class="card-header">
+    <h3>Feature Name</h3>
+  </div>
+  <!-- Content here -->
+</section>
+```
+
+**Add Navigation Item**: In `AuthLayout.vue`:
+```vue
+<router-link to="/new-route" class="nav-item">
+  <span class="nav-icon">🎯</span>
+  <span class="nav-label">New Item</span>
+</router-link>
+```
+
+**Customize Stats**: Edit `.quick-stats` section in `CreatorLobby.vue` SCSS. Stats are fetched via API in future (hardcoded mock data for now).
+
+---
 1. Create `src/pages/MyPage.vue` with `<script setup>`
 2. Import in `src/router/routes.js`:
    ```javascript
    {
      path: '/mypage',
-     component: () => import('layouts/MainLayout.vue'),
+     component: () => import('layouts/MainLayout.vue'),  // or AuthLayout for authenticated pages
      children: [{ path: '', component: () => import('pages/MyPage.vue') }]
    }
    ```
-3. Link from layout: `<router-link to="/mypage">My Page</router-link>`
+3. For public pages, use `MainLayout.vue` — for authenticated pages, use `AuthLayout.vue`
+4. Link from layout: `<router-link to="/mypage">My Page</router-link>`
 
 ### Modifying Navigation
 - Edit `linksList` in `MainLayout.vue` for drawer links
