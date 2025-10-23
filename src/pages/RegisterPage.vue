@@ -161,7 +161,7 @@ const handleRegister = async () => {
   isLoading.value = true
 
   try {
-    const response = await fetch('http://localhost:5000/api/auth/register', {
+    const response = await fetch('/api/auth/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -187,7 +187,7 @@ const handleRegister = async () => {
 
     router.push('/lobby')
   } catch (error) {
-    errors.general = 'Connection error. Make sure backend is running at localhost:5000'
+    errors.general = 'Connection error. Please try again.'
     console.error('Registration error:', error)
   } finally {
     isLoading.value = false

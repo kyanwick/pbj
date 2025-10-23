@@ -438,7 +438,7 @@ const handleSubmit = async () => {
     }
 
     // Send to backend API endpoint
-    const response = await fetch('http://localhost:5000/api/creator-profile', {
+    const response = await fetch('/api/creator-profile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

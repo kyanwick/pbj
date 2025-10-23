@@ -111,7 +111,7 @@ const handleLogin = async () => {
   isLoading.value = true
 
   try {
-    const response = await fetch('http://localhost:5000/api/auth/login', {
+    const response = await fetch('/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -136,7 +136,7 @@ const handleLogin = async () => {
 
     router.push('/lobby')
   } catch (error) {
-    errors.general = 'Connection error. Make sure backend is running at localhost:5000'
+    errors.general = 'Connection error. Please try again.'
     console.error('Login error:', error)
   } finally {
     isLoading.value = false

@@ -52,6 +52,7 @@ services:
       - /app/node_modules
     networks:
       - pbj-network
+      - npm_default
     expose:
       - "5000"
     security_opt:
@@ -78,6 +79,7 @@ services:
       STORAGE_PATH: /app/storage
     networks:
       - pbj-network
+      - npm_default
     expose:
       - "80"
     security_opt:
@@ -91,6 +93,6 @@ services:
 networks:
   pbj-network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.30.0.0/16
+  npm_default:
+    external: true
+    name: nginx-proxy-manager_default
