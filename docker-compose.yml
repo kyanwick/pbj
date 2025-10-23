@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    ports:
+      - "77:80"
+    restart: unless-stopped
+    container_name: my-saas
