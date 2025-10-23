@@ -5,6 +5,22 @@
       ⭐ YOU'RE IN! ⭐ LET'S CREATE SOMETHING AMAZING ⭐ YOUR VOICE. YOUR CONTENT. ⭐
     </div>
 
+    <!-- Profile Prompt or Card Section -->
+    <div class="container">
+      <section v-if="!hasCompletedProfile" class="profile-prompt">
+        <div class="prompt-card">
+          <h3>🚀 Before You Start Creating...</h3>
+          <p>We'd love to know more about your brand and voice. It takes about 10 minutes and helps us generate ideas that sound like YOU.</p>
+          <router-link to="/profile" class="btn-prompt">Tell Us About Yourself</router-link>
+          <p class="skip-text">You can always do this later from your settings</p>
+        </div>
+      </section>
+
+      <section v-else class="profile-section">
+        <ProfileCard />
+      </section>
+    </div>
+
     <!-- Welcome Hero -->
     <section class="welcome-hero">
       <div class="hero-title">LET'S CREATE<br />SOMETHING AMAZING</div>
@@ -107,7 +123,15 @@
 </template>
 
 <script setup>
-// Dashboard logic here
+import { ref, onMounted } from 'vue'
+import ProfileCard from '../components/ProfileCard.vue'
+
+const hasCompletedProfile = ref(false)
+
+onMounted(() => {
+  const completed = localStorage.getItem('profile_completed')
+  hasCompletedProfile.value = completed === 'true'
+})
 </script>
 
 <style scoped lang="scss">
@@ -481,6 +505,84 @@
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
   }
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// PROFILE SECTION
+// ═══════════════════════════════════════════════════════════════════
+
+.profile-prompt {
+  margin-bottom: 30px;
+  animation: slideDown 0.5s ease;
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.prompt-card {
+  border: 3px solid #ff6b6b;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(254, 202, 87, 0.1));
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  h3 {
+    font-family: 'Courier New', monospace;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 12px 0;
+    letter-spacing: 1px;
+  }
+
+  p {
+    color: #333;
+    margin: 12px 0;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .skip-text {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 16px;
+    font-style: italic;
+  }
+}
+
+.btn-prompt {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 16px 0;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  }
+}
+
+.profile-section {
+  margin-bottom: 30px;
 }
 
 .stat-box {

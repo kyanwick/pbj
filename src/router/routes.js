@@ -15,6 +15,11 @@ const routes = [
     children: [{ path: '', component: () => import('pages/RegisterPage.vue') }],
   },
   {
+    path: '/profile',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/CreatorProfileForm.vue') }],
+  },
+  {
     path: '/lobby',
     component: () => import('layouts/AuthLayout.vue'),
     children: [{ path: '', component: () => import('pages/CreatorLobby.vue') }],
