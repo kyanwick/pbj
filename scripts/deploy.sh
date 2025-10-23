@@ -14,9 +14,12 @@ echo ""
 
 # 1. Initialize storage (if first time)
 echo "🗂️  Ensuring storage directories exist..."
-sudo mkdir -p /mnt/elitecloud/saas-storage/{brand_kits,scheduled_posts,media,generated_history,archive}
-sudo mkdir -p /mnt/elitecloud/saas-db
-sudo chmod -R 755 /mnt/elitecloud/saas-storage /mnt/elitecloud/saas-db
+mkdir -p /mnt/elitecloud/saas-storage/{brand_kits,scheduled_posts,media,generated_history,archive} 2>/dev/null || \
+  sudo mkdir -p /mnt/elitecloud/saas-storage/{brand_kits,scheduled_posts,media,generated_history,archive}
+mkdir -p /mnt/elitecloud/saas-db 2>/dev/null || \
+  sudo mkdir -p /mnt/elitecloud/saas-db
+chmod -R 755 /mnt/elitecloud/saas-storage /mnt/elitecloud/saas-db 2>/dev/null || \
+  sudo chmod -R 755 /mnt/elitecloud/saas-storage /mnt/elitecloud/saas-db
 echo "✅ Storage ready"
 echo ""
 
@@ -35,19 +38,19 @@ echo ""
 # 3. Stop existing containers
 echo "🛑 Stopping existing containers..."
 cd "$PROJECT_DIR"
-sudo docker-compose down
+docker-compose down || sudo docker-compose down
 echo "✅ Containers stopped"
 echo ""
 
 # 4. Rebuild Docker image (builds frontend)
 echo "📦 Rebuilding Docker image (this builds the frontend)..."
-sudo docker-compose build --no-cache web
+docker-compose build --no-cache web || sudo docker-compose build --no-cache web
 echo "✅ Docker image rebuilt"
 echo ""
 
 # 5. Start containers
 echo "🚀 Starting Docker containers..."
-sudo docker-compose up -d
+docker-compose up -d || sudo docker-compose up -d
 echo "✅ Containers started"
 echo ""
 
