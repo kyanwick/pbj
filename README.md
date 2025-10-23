@@ -2,7 +2,15 @@
 
 a content creation ai hub
 
-## Install the dependencies
+## Quick Links
+
+- 🚀 **[Deployment Quick Start](./DEPLOYMENT_QUICK_START.md)** - Get Docker running in 5 minutes
+- 📦 **[Docker Storage Guide](./DOCKER_STORAGE.md)** - Storage architecture & backup strategies
+- 🤖 **[AI Agent Instructions](./.github/copilot-instructions.md)** - For AI coding agents
+
+## Development
+
+### Install the dependencies
 
 ```bash
 yarn
@@ -37,6 +45,15 @@ npm run format
 ```bash
 quasar build
 ```
+
+### Production Deployment
+
+```bash
+./scripts/init-storage.sh    # Initialize storage directories
+docker-compose up -d         # Start containerized services
+```
+
+See [Deployment Quick Start](./DEPLOYMENT_QUICK_START.md) for detailed instructions.
 
 ### Customize the configuration
 

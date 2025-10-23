@@ -5,3 +5,32 @@ services:
       - "77:80"
     restart: unless-stopped
     container_name: my-saas
+    volumes:
+      # Mount large storage drive for persistent data
+      - /mnt/elitecloud/saas-storage:/app/storage
+      # Optional: mount for easier log access
+      - /mnt/elitecloud/saas-logs:/app/logs
+    environment:
+      # Configure storage paths
+      NODE_ENV: production
+      STORAGE_PATH: /app/storage
+      BRAND_KITS_DIR: /app/storage/brand_kits
+      SCHEDULED_POSTS_DIR: /app/storage/scheduled_posts
+      MEDIA_DIR: /app/storage/media
+      GENERATED_HISTORY_DIR: /app/storage/generated_history
+      ARCHIVE_DIR: /app/storage/archive
+
+  # Optional: PostgreSQL container (if running DB in Docker)
+  db:
+    image: postgres:16-alpine
+    container_name: saas-db
+    environment:
+      POSTGRES_DB: saas_db
+      POSTGRES_USER: saas_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeMe}
+    volumes:
+      # Database files on large storage
+      - /mnt/elitecloud/saas-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
