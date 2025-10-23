@@ -3,10 +3,13 @@
     <!-- Persistent Header -->
     <header class="auth-header">
       <div class="header-container">
-        <router-link to="/lobby" class="logo-link">
-          <div class="logo">PB+J</div>
-        </router-link>
-        <div class="tagline">Creator Hub</div>
+        <div class="logo-section">
+          <router-link to="/lobby" class="logo-link">
+            <div class="logo">PB+J</div>
+          </router-link>
+          <div class="tagline">Creator Hub</div>
+        </div>
+
         <div class="header-spacer"></div>
         <button class="btn-create-header">
           <span class="icon">✨</span>
@@ -107,12 +110,13 @@ $font-mono: 'Courier New', monospace;
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
 
   .header-container {
-    max-width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 16px 20px;
     display: flex;
     align-items: center;
     gap: 16px;
+    width: 100%;
   }
 
   .logo-link {
@@ -120,21 +124,34 @@ $font-mono: 'Courier New', monospace;
   }
 
   .logo {
-    font-family: $font-mono;
-    font-size: 24px;
-    font-weight: 900;
-    color: $color-light;
-    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
-    letter-spacing: 2px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $color-light;
+  text-shadow: 2px 2px 0 $color-dark;
+  letter-spacing: 3px;
   }
 
   .tagline {
-    font-size: 12px;
-    color: rgba($color-light, 0.9);
-    font-weight: bold;
-    letter-spacing: 1px;
-    white-space: nowrap;
+   font-size: 9px;
+   color: $color-accent-yellow;
+   letter-spacing: 1px;
+   margin-top: 3px;
+   text-transform: uppercase;
   }
+
+  .logo-section {
+  background: linear-gradient(135deg, $primary, $secondary);
+  padding: 12px;
+  border: 2px solid $color-light;
+  box-shadow: 4px 4px 0 rgba($color-accent-yellow, 0.6);
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 2px 0 rgba($color-accent-yellow, 0.8);
+  }
+}
 
   .header-spacer {
     flex: 1;
@@ -252,6 +269,9 @@ $font-mono: 'Courier New', monospace;
   grid-template-columns: 180px 1fr;
   flex: 1;
   gap: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -375,13 +395,19 @@ $font-mono: 'Courier New', monospace;
 // ═══════════════════════════════════════════════════════════════════
 
 .auth-content {
-  padding: 30px;
+  padding: 30px 20px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @media (max-width: 768px) {
-    padding: 20px;
+    padding: 20px 12px;
+  }
+
+  > * {
+    width: 100%;
+    max-width: 1200px;
   }
 }
 </style>
