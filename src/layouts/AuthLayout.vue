@@ -91,25 +91,25 @@ $font-mono: 'Courier New', monospace;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 100%);
+  background: #f9f9f9;
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// HEADER
+// HEADER - BOLD RETRO STYLE (MATCHING INDEXPAGE)
 // ═══════════════════════════════════════════════════════════════════
 
 .auth-header {
-  background: white;
-  border-bottom: 2px solid $color-border;
+  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  border-bottom: 5px solid $color-accent-red;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
 
   .header-container {
     max-width: 100%;
     margin: 0 auto;
-    padding: 12px 20px;
+    padding: 16px 20px;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -121,19 +121,18 @@ $font-mono: 'Courier New', monospace;
 
   .logo {
     font-family: $font-mono;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 900;
-    background: linear-gradient(135deg, $color-primary, $color-secondary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: $light;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
     letter-spacing: 2px;
   }
 
   .tagline {
-    font-size: 11px;
-    color: #999;
-    font-style: italic;
+    font-size: 12px;
+    color: rgba($light, 0.9);
+    font-weight: bold;
+    letter-spacing: 1px;
     white-space: nowrap;
   }
 
@@ -142,27 +141,36 @@ $font-mono: 'Courier New', monospace;
   }
 
   .btn-create-header {
-    background: linear-gradient(135deg, $color-primary, $color-secondary);
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 12px;
+    background: $color-accent-red;
+    color: $light;
+    border: 3px solid $light;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 13px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba($color-primary, 0.2);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+    font-family: $font-mono;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 
     .icon {
-      font-size: 14px;
+      font-size: 16px;
     }
 
     &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba($color-primary, 0.3);
+      background: $color-accent-yellow;
+      color: $dark;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      transform: translate(0);
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
     }
   }
 
@@ -171,28 +179,32 @@ $font-mono: 'Courier New', monospace;
   }
 
   .profile-btn {
-    background: none;
-    border: 2px solid $color-border;
+    background: $light;
+    border: 3px solid $light;
     cursor: pointer;
-    padding: 4px;
-    border-radius: 50%;
+    padding: 2px;
+    border-radius: 0;
     transition: all 0.2s ease;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
 
     &:hover {
-      border-color: $color-primary;
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
     }
 
     .avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      border-radius: 0;
       background: linear-gradient(135deg, $color-accent-yellow, $color-accent-red);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      color: white;
-      font-size: 14px;
+      font-weight: 900;
+      color: $dark;
+      font-size: 16px;
+      border: 2px solid $dark;
+      box-sizing: border-box;
     }
   }
 
@@ -200,30 +212,32 @@ $font-mono: 'Courier New', monospace;
     position: absolute;
     top: 100%;
     right: 0;
-    background: white;
-    border: 2px solid $color-border;
-    border-radius: 8px;
+    background: $light;
+    border: 3px solid $dark;
+    border-radius: 0;
     margin-top: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
     z-index: 101;
     min-width: 160px;
     overflow: hidden;
 
     .menu-item {
       display: block;
-      padding: 10px 16px;
+      padding: 12px 16px;
       text-decoration: none;
-      color: $color-dark;
+      color: $dark;
       font-size: 13px;
-      border-bottom: 1px solid $color-light;
+      border-bottom: 2px solid $dark;
       transition: background 0.2s ease;
+      font-family: $font-mono;
+      font-weight: bold;
 
       &:last-child {
         border-bottom: none;
       }
 
       &:hover {
-        background: $color-light;
+        background: $color-accent-yellow;
       }
     }
   }
@@ -246,25 +260,27 @@ $font-mono: 'Courier New', monospace;
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// SIDEBAR
+// SIDEBAR - BOLD RETRO STYLE
 // ═══════════════════════════════════════════════════════════════════
 
 .auth-sidebar {
-  background: white;
-  border-right: 2px solid $color-border;
+  background: $light;
+  border-right: 4px solid $dark;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  box-shadow: 4px 0 0 rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
     border-right: none;
-    border-bottom: 2px solid $color-border;
+    border-bottom: 4px solid $dark;
     padding: 12px;
     display: flex;
     flex-direction: row;
-    gap: 4px;
+    gap: 8px;
     overflow-x: auto;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
 
     &::-webkit-scrollbar {
       height: 4px;
@@ -275,15 +291,15 @@ $font-mono: 'Courier New', monospace;
     }
 
     &::-webkit-scrollbar-thumb {
-      background: $color-border;
-      border-radius: 2px;
+      background: $dark;
+      border-radius: 0;
     }
   }
 
   .sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
 
     @media (max-width: 768px) {
       flex-direction: row;
@@ -294,47 +310,49 @@ $font-mono: 'Courier New', monospace;
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 10px 12px;
-      border-radius: 8px;
+      padding: 12px 14px;
+      border-radius: 0;
       text-decoration: none;
-      color: #666;
+      color: $dark;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: bold;
       transition: all 0.2s ease;
-      border-left: 3px solid transparent;
+      border: 2px solid $dark;
+      background: $light;
+      font-family: $font-mono;
+      letter-spacing: 1px;
+      box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
 
       @media (max-width: 768px) {
         flex-direction: column;
         text-align: center;
         gap: 6px;
-        padding: 10px 8px;
-        border-left: none;
-        border-bottom: 2px solid transparent;
+        padding: 10px 12px;
         white-space: nowrap;
         flex-shrink: 0;
       }
 
       &:hover {
-        background: $color-light;
-        color: $color-primary;
-        border-left-color: $color-primary;
-        transform: translateX(4px);
+        background: $color-accent-yellow;
+        border-color: $dark;
+        transform: translate(-2px, -2px);
+        box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
 
         @media (max-width: 768px) {
-          border-left: none;
-          border-bottom-color: $color-primary;
-          transform: translateY(-2px);
+          transform: translate(-1px, -1px);
+          box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
         }
       }
 
       &.active {
-        background: linear-gradient(135deg, rgba($color-primary, 0.1), rgba($color-secondary, 0.1));
-        color: $color-primary;
-        border-left-color: $color-primary;
+        background: $color-accent-red;
+        color: $light;
+        border-color: $dark;
+        font-weight: 900;
+        box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
 
         @media (max-width: 768px) {
-          border-left: none;
-          border-bottom-color: $color-primary;
+          box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
         }
       }
 
