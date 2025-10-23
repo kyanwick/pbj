@@ -2,104 +2,107 @@
   <div class="creator-lobby">
     <!-- Animated Banner -->
     <div class="lobby-banner">
-      ⚡ YOU'RE IN! ⚡ LET'S CREATE SOMETHING AMAZING ⚡ YOUR VOICE. YOUR CONTENT. ⚡
+      ⭐ YOU'RE IN! ⭐ LET'S CREATE SOMETHING AMAZING ⭐ YOUR VOICE. YOUR CONTENT. ⭐
     </div>
 
     <!-- Welcome Hero -->
     <section class="welcome-hero">
-      <div class="welcome-content">
-        <div class="welcome-emoji">🎨</div>
-        <h1 class="welcome-title">LET'S CREATE MAGIC</h1>
-        <p class="welcome-subtitle">Your authentic voice, amplified ethically</p>
-        <button class="cta-huge">START CREATING NOW →</button>
+      <div class="hero-title">LET'S CREATE<br />SOMETHING AMAZING</div>
+      <div class="hero-subtitle">🎨 YOUR AUTHENTIC VOICE ✨</div>
+      <div class="hero-description">
+        You've unlocked your creator dashboard. Now let's build content that sounds unmistakably YOU. 
+        PB+J AI is here to assist, never to replace your voice. Let's go.
       </div>
+      <button class="cta-big">★ START CREATING NOW ★</button>
     </section>
 
-    <!-- Main Action Cards Grid -->
-    <section class="cards-section">
-      <div class="action-card primary-card">
-        <div class="card-emoji">✨</div>
-        <h2>GENERATE CONTENT</h2>
-        <p>AI-powered ideas that match YOUR voice</p>
-        <button class="card-btn primary">Begin →</button>
-      </div>
-
-      <div class="action-card">
-        <div class="card-emoji">📅</div>
-        <h2>SCHEDULE POSTS</h2>
-        <p>Auto-publish to all your platforms</p>
-        <button class="card-btn">Manage →</button>
-      </div>
-
-      <div class="action-card">
-        <div class="card-emoji">🎯</div>
-        <h2>BRAND KIT</h2>
-        <p>Manage colors, fonts, tone of voice</p>
-        <button class="card-btn">Setup →</button>
-      </div>
-
-      <div class="action-card">
-        <div class="card-emoji">📊</div>
-        <h2>ANALYTICS</h2>
-        <p>Track reach, engagement, growth</p>
-        <button class="card-btn">View →</button>
-      </div>
-    </section>
-
-    <!-- Latest Drafts Section -->
-    <section class="drafts-section">
-      <div class="section-header">
-        <h2>YOUR LATEST DRAFTS</h2>
-        <span class="draft-count">3</span>
-      </div>
-      <div class="drafts-grid">
-        <div class="draft-card">
-          <div class="draft-emoji">📝</div>
-          <div class="draft-details">
-            <h3>Q4 Product Launch</h3>
-            <p>LinkedIn • Oct 22</p>
-          </div>
-          <button class="draft-btn">→</button>
+    <!-- Main Action Grid -->
+    <div class="container">
+      <div class="action-grid">
+        <div class="action-card">
+          <div class="card-number">1</div>
+          <div class="card-title">✨ GENERATE IDEAS</div>
+          <div class="card-text">AI-powered ideas that match YOUR voice</div>
+          <button class="card-btn">Begin →</button>
         </div>
-        <div class="draft-card">
-          <div class="draft-emoji">🎥</div>
-          <div class="draft-details">
-            <h3>Behind-the-Scenes</h3>
-            <p>TikTok • Oct 20</p>
-          </div>
-          <button class="draft-btn">→</button>
+
+        <div class="action-card">
+          <div class="card-number">2</div>
+          <div class="card-title">📅 SCHEDULE POSTS</div>
+          <div class="card-text">Auto-publish to all platforms at once</div>
+          <button class="card-btn">Manage →</button>
         </div>
-        <div class="draft-card">
-          <div class="draft-emoji">💬</div>
-          <div class="draft-details">
-            <h3>Industry Insights</h3>
-            <p>Twitter • Oct 18</p>
-          </div>
-          <button class="draft-btn">→</button>
+
+        <div class="action-card">
+          <div class="card-number">3</div>
+          <div class="card-title">🎯 BRAND KIT</div>
+          <div class="card-text">Manage your colors, fonts, tone</div>
+          <button class="card-btn">Setup →</button>
+        </div>
+
+        <div class="action-card">
+          <div class="card-number">4</div>
+          <div class="card-title">📊 ANALYTICS</div>
+          <div class="card-text">Track reach, engagement, growth</div>
+          <button class="card-btn">View →</button>
         </div>
       </div>
-      <button class="view-all-btn">VIEW ALL DRAFTS →</button>
-    </section>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar">
-      <div class="stat-item">
-        <div class="stat-big">12</div>
-        <div class="stat-small">DRAFTS</div>
+      <!-- Latest Drafts Section -->
+      <div class="drafts-container">
+        <h2 class="section-title">YOUR LATEST DRAFTS</h2>
+        <div class="drafts-grid">
+          <div class="draft-card">
+            <div class="draft-number">1</div>
+            <div class="draft-emoji">📝</div>
+            <div class="draft-info">
+              <h3>Q4 Product Launch</h3>
+              <p>LinkedIn • Oct 22</p>
+            </div>
+            <button class="draft-btn">→</button>
+          </div>
+          <div class="draft-card">
+            <div class="draft-number">2</div>
+            <div class="draft-emoji">🎥</div>
+            <div class="draft-info">
+              <h3>Behind-the-Scenes</h3>
+              <p>TikTok • Oct 20</p>
+            </div>
+            <button class="draft-btn">→</button>
+          </div>
+          <div class="draft-card">
+            <div class="draft-number">3</div>
+            <div class="draft-emoji">💬</div>
+            <div class="draft-info">
+              <h3>Industry Insights</h3>
+              <p>Twitter • Oct 18</p>
+            </div>
+            <button class="draft-btn">→</button>
+          </div>
+        </div>
+        <button class="view-all">VIEW ALL DRAFTS →</button>
       </div>
-      <div class="stat-item">
-        <div class="stat-big">8</div>
-        <div class="stat-small">PUBLISHED</div>
+
+      <!-- Stats Section -->
+      <div class="stats-section">
+        <div class="stat-box">
+          <div class="stat-number">12</div>
+          <div class="stat-label">DRAFTS</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">8</div>
+          <div class="stat-label">PUBLISHED</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">2.4K</div>
+          <div class="stat-label">REACH</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">342</div>
+          <div class="stat-label">ENGAGED</div>
+        </div>
       </div>
-      <div class="stat-item">
-        <div class="stat-big">2.4K</div>
-        <div class="stat-small">REACH</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-big">342</div>
-        <div class="stat-small">ENGAGED</div>
-      </div>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -108,18 +111,16 @@
 </script>
 
 <style scoped lang="scss">
-$primary: #667eea;
-$secondary: #764ba2;
-$accent1: #ff6b6b;
-$accent2: #feca57;
-$accent3: #48dbfb;
-$dark: #000;
-$light: #fff;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .creator-lobby {
-  background: #f9f9f9;
-  font-family: 'Courier New', monospace;
-  padding-bottom: 40px;
+  font-family: 'MS Gothic', 'Courier New', monospace;
+  background: #fff;
+  color: #000;
 }
 
 // ═══════════════════════════════════════════════════════════════════
@@ -127,216 +128,201 @@ $light: #fff;
 // ═══════════════════════════════════════════════════════════════════
 
 .lobby-banner {
-  background: linear-gradient(90deg, $accent1 0%, $accent2 25%, $accent3 50%, #ff9ff3 75%, $accent1 100%);
-  padding: 10px 0;
+  background: linear-gradient(90deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #ff6b6b 100%);
+  padding: 5px 0;
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
-  color: $dark;
+  color: #000;
   letter-spacing: 2px;
-  overflow: hidden;
-  white-space: nowrap;
-  animation: scrollBanner 20s linear infinite;
+  animation: rainbow 6s linear infinite;
 
-  @keyframes scrollBanner {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
   }
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// WELCOME HERO
+// HERO SECTION
 // ═══════════════════════════════════════════════════════════════════
 
 .welcome-hero {
-  background: linear-gradient(135deg, $primary 0%, $secondary 100%);
-  padding: 80px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 50px 20px;
   text-align: center;
-  border-bottom: 6px solid $accent1;
+  border-bottom: 5px solid #ff6b6b;
   position: relative;
   overflow: hidden;
 
   &::before {
-    content: '🎨✨🎨✨🎨✨🎨✨🎨✨🎨✨🎨✨';
+    content: '🥜�🥜�🥜�🥜�🥜�🥜�🥜�';
     position: absolute;
     top: 10px;
     left: 0;
     right: 0;
-    font-size: 28px;
-    opacity: 0.15;
-    animation: float 20s infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+    font-size: 22px;
+    opacity: 0.25;
   }
 }
 
-.welcome-content {
+.hero-title {
+  font-size: 2.8rem;
+  color: #fff;
+  text-shadow: 4px 4px 0 #000, 8px 8px 0 rgba(0, 0, 0, 0.3);
+  margin-bottom: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
   position: relative;
   z-index: 1;
-  max-width: 800px;
-  margin: 0 auto;
 }
 
-.welcome-emoji {
-  font-size: 72px;
-  margin-bottom: 20px;
-  animation: bounce 2s ease-in-out infinite;
-
-  @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-}
-
-.welcome-title {
-  font-size: 3.2rem;
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #feca57;
+  background: #000;
+  display: inline-block;
+  padding: 10px 18px;
+  border: 3px solid #fff;
+  margin-bottom: 18px;
   font-weight: bold;
-  color: $light;
-  text-shadow: 5px 5px 0 rgba($dark, 0.4), 8px 8px 0 rgba($dark, 0.2);
-  margin: 0 0 12px 0;
-  line-height: 1.2;
+  position: relative;
+  z-index: 1;
 }
 
-.welcome-subtitle {
+.hero-description {
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  padding: 16px;
+  margin: 18px auto;
+  max-width: 700px;
+  border: 3px solid #000;
+  font-size: 14px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-big {
+  background: #ff6b6b;
+  color: #fff;
+  padding: 16px 32px;
+  border: 4px solid #000;
   font-size: 16px;
-  color: rgba($light, 0.9);
-  margin: 0 0 24px 0;
-  font-style: italic;
-}
-
-.cta-huge {
-  background: linear-gradient(135deg, $accent2, $accent1);
-  border: 3px solid $dark;
-  padding: 16px 40px;
-  font-size: 18px;
   font-weight: bold;
-  color: $dark;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 6px 6px 0 rgba($dark, 0.3);
-  font-family: 'Courier New', monospace;
-  letter-spacing: 1px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'MS Gothic', 'Courier New', monospace;
+  box-shadow: 6px 6px 0 #000;
+  transition: all 0.2s;
+  position: relative;
+  z-index: 1;
 
   &:hover {
+    background: #feca57;
+    color: #000;
     transform: translate(-3px, -3px);
-    box-shadow: 9px 9px 0 rgba($dark, 0.3);
+    box-shadow: 9px 9px 0 #000;
   }
 
   &:active {
     transform: translate(0);
-    box-shadow: 3px 3px 0 rgba($dark, 0.3);
   }
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// ACTION CARDS
+// CONTAINER & LAYOUT
 // ═══════════════════════════════════════════════════════════════════
 
-.cards-section {
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// ACTION GRID
+// ═══════════════════════════════════════════════════════════════════
+
+.action-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 15px;
+  margin: 20px 0;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 30px 16px;
   }
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 20px 12px;
   }
 }
 
 .action-card {
-  background: $light;
-  border: 4px solid $dark;
-  padding: 24px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 4px 4px 0 rgba($dark, 0.2);
+  background: #fff;
+  border: 3px solid #000;
+  padding: 18px;
   position: relative;
-  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
 
   &:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 8px 8px 0 rgba($dark, 0.2);
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, $accent1, $accent2, $accent3);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-
-  &:hover::before {
-    opacity: 0.1;
-  }
-
-  &.primary-card {
-    border-color: $accent1;
-    background: linear-gradient(135deg, rgba($accent2, 0.1), rgba($accent1, 0.05));
+    transform: scale(1.05);
+    box-shadow: 8px 8px 0 #ff6b6b;
   }
 }
 
-.card-emoji {
-  font-size: 48px;
-  margin-bottom: 12px;
-  display: block;
-}
-
-.action-card h2 {
-  font-size: 18px;
+.card-number {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  background: #feca57;
+  color: #000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
-  color: $dark;
-  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #667eea;
+  text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.action-card p {
-  font-size: 13px;
-  color: #666;
-  margin: 0 0 16px 0;
-  line-height: 1.4;
+.card-text {
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #333;
 }
 
 .card-btn {
-  background: $primary;
-  border: 2px solid $dark;
-  padding: 10px 20px;
-  font-size: 13px;
+  background: #667eea;
+  border: 2px solid #000;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 12px;
   font-weight: bold;
-  color: $light;
   cursor: pointer;
-  font-family: 'Courier New', monospace;
-  transition: all 0.2s ease;
-  box-shadow: 3px 3px 0 rgba($dark, 0.2);
+  font-family: 'MS Gothic', 'Courier New', monospace;
+  transition: all 0.2s;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
 
   &:hover {
-    background: $secondary;
+    background: #ff6b6b;
     transform: translate(-2px, -2px);
-  }
-
-  &.primary {
-    background: linear-gradient(135deg, $accent2, $accent1);
-    color: $dark;
-    box-shadow: 3px 3px 0 rgba($dark, 0.3);
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -344,44 +330,28 @@ $light: #fff;
 // DRAFTS SECTION
 // ═══════════════════════════════════════════════════════════════════
 
-.drafts-section {
-  background: $light;
-  padding: 40px 20px;
-  max-width: 1200px;
-  margin: 20px auto;
-  border: 4px solid $dark;
-  box-shadow: 6px 6px 0 rgba($dark, 0.2);
+.drafts-container {
+  background: #fff;
+  border: 3px solid #000;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.2);
 }
 
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: $dark;
-    margin: 0;
-    letter-spacing: 1px;
-  }
-
-  .draft-count {
-    background: linear-gradient(135deg, $accent3, $primary);
-    color: $light;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 14px;
-  }
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .drafts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 16px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -389,107 +359,123 @@ $light: #fff;
 }
 
 .draft-card {
-  background: #f9f9f9;
-  border: 3px solid $dark;
-  padding: 16px;
+  background: #f5f5f5;
+  border: 3px solid #000;
+  padding: 14px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 3px 3px 0 rgba($dark, 0.15);
+  transition: all 0.2s;
+  position: relative;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
 
   &:hover {
-    background: $accent2;
+    background: #48dbfb;
     transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0 rgba($dark, 0.15);
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
   }
 }
 
+.draft-number {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  background: #feca57;
+  color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
 .draft-emoji {
-  font-size: 32px;
+  font-size: 28px;
   flex-shrink: 0;
 }
 
-.draft-details {
+.draft-info {
   flex: 1;
   min-width: 0;
 }
 
-.draft-details h3 {
-  font-size: 13px;
+.draft-info h3 {
+  font-size: 12px;
   font-weight: bold;
-  color: $dark;
+  color: #000;
   margin: 0 0 4px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.draft-details p {
+.draft-info p {
   font-size: 11px;
-  color: #888;
+  color: #666;
   margin: 0;
 }
 
 .draft-btn {
-  background: $primary;
-  border: 2px solid $dark;
-  width: 36px;
-  height: 36px;
+  background: #667eea;
+  border: 2px solid #000;
+  color: #fff;
+  width: 32px;
+  height: 32px;
   border-radius: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
-  color: $light;
   cursor: pointer;
   flex-shrink: 0;
-  transition: all 0.2s ease;
-  box-shadow: 2px 2px 0 rgba($dark, 0.2);
+  transition: all 0.2s;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
 
   &:hover {
-    background: $accent1;
+    background: #ff6b6b;
     transform: translate(-1px, -1px);
   }
 }
 
-.view-all-btn {
+.view-all {
   display: block;
   width: 100%;
-  background: $dark;
-  color: $light;
-  border: 3px solid $dark;
+  background: #000;
+  color: #fff;
+  border: 3px solid #000;
   padding: 12px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   cursor: pointer;
-  font-family: 'Courier New', monospace;
+  font-family: 'MS Gothic', 'Courier New', monospace;
   letter-spacing: 1px;
-  transition: all 0.2s ease;
-  box-shadow: 4px 4px 0 rgba($dark, 0.3);
+  transition: all 0.2s;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
 
   &:hover {
-    background: $primary;
-    color: $light;
+    background: #667eea;
     transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 rgba($dark, 0.3);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
   }
 }
 
 // ═══════════════════════════════════════════════════════════════════
-// STATS BAR
+// STATS SECTION
 // ═══════════════════════════════════════════════════════════════════
 
-.stats-bar {
+.stats-section {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 20px auto;
+  margin: 20px 0;
+  background: #000;
+  padding: 12px;
 
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
   }
 
   @media (max-width: 480px) {
@@ -497,33 +483,26 @@ $light: #fff;
   }
 }
 
-.stat-item {
-  background: linear-gradient(135deg, $primary, $secondary);
-  border: 3px solid $dark;
-  padding: 20px;
+.stat-box {
+  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  padding: 16px;
   text-align: center;
-  box-shadow: 4px 4px 0 rgba($dark, 0.2);
-  transition: all 0.2s ease;
-
-  &:hover {
-    transform: translate(-3px, -3px);
-    box-shadow: 7px 7px 0 rgba($dark, 0.2);
-  }
+  border: 3px solid #fff;
+  color: #000;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
 }
 
-.stat-big {
-  font-size: 36px;
+.stat-number {
+  font-size: 2.2rem;
   font-weight: bold;
-  color: $light;
-  text-shadow: 3px 3px 0 rgba($dark, 0.3);
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
   margin: 0;
 }
 
-.stat-small {
+.stat-label {
   font-size: 11px;
-  color: rgba($light, 0.9);
+  font-weight: bold;
   margin-top: 6px;
   letter-spacing: 1px;
-  font-weight: bold;
 }
 </style>
