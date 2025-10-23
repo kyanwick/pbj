@@ -111,25 +111,33 @@ const handleLogin = async () => {
   isLoading.value = true
 
   try {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    const response = await fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: form.email,
+        password: form.password
+      })
+    })
 
-    // TODO: Replace with actual API call
-    // const response = await fetch('/api/auth/login', {
-    //   method: 'POST',
-    //   body: JSON.stringify(form)
-    // })
+    const data = await response.json()
 
-    // Mock validation - accept demo credentials
-    if (form.email === 'demo@example.com' && form.password === 'password') {
-      // Store token (replace with actual token from API)
-      localStorage.setItem('auth_token', 'mock_token_' + Date.now())
-      router.push('/lobby')
-    } else {
-      errors.general = 'Invalid email or password. Try demo@example.com / password'
+    if (!response.ok) {
+      errors.general = data.message || 'Login failed. Please try again.'
+      return
     }
-  } catch {
-    errors.general = 'An error occurred. Please try again.'
+
+    // Store token and user info
+    localStorage.setItem('auth_token', data.data.token)
+    localStorage.setItem('user_name', data.data.user.name)
+    localStorage.setItem('user_id', data.data.user.id)
+
+    router.push('/lobby')
+  } catch (error) {
+    errors.general = 'Connection error. Make sure backend is running at localhost:5000'
+    console.error('Login error:', error)
   } finally {
     isLoading.value = false
   }

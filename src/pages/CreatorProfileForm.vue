@@ -413,21 +413,32 @@ const handleSubmit = async () => {
   isSubmitting.value = true
 
   try {
-    // Get user data from localStorage
+    // Get auth token from localStorage
     const authToken = localStorage.getItem('auth_token')
-    const userName = localStorage.getItem('user_name')
 
-    // Prepare payload for backend/database
+    if (!authToken) {
+      throw new Error('Not authenticated. Please log in first.')
+    }
+
+    // Prepare payload for backend
     const payload = {
-      user_id: authToken ? `user_${Date.now()}` : null,
-      user_name: userName || 'Unknown',
-      auth_token: authToken,
-      timestamp: new Date().toISOString(),
-      ...form.value
+      name: form.value.name,
+      whatYouDo: form.value.whatYouDo,
+      categories: form.value.categories,
+      brandSound: form.value.brandSound,
+      scriptStyle: form.value.scriptStyle,
+      contentFormats: form.value.contentFormats,
+      inspiration: form.value.inspiration,
+      disagreements: form.value.disagreements,
+      turnoffs: form.value.turnoffs,
+      faqs: form.value.faqs,
+      myths: form.value.myths,
+      avoidTopics: form.value.avoidTopics,
+      timestamp: new Date().toISOString()
     }
 
     // Send to backend API endpoint
-    const response = await fetch('/api/creator-profile', {
+    const response = await fetch('http://localhost:5000/api/creator-profile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

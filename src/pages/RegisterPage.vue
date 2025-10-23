@@ -161,21 +161,34 @@ const handleRegister = async () => {
   isLoading.value = true
 
   try {
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    const response = await fetch('http://localhost:5000/api/auth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        password: form.password
+      })
+    })
 
-    // TODO: Replace with actual API call
-    // const response = await fetch('/api/auth/register', {
-    //   method: 'POST',
-    //   body: JSON.stringify(form)
-    // })
+    const data = await response.json()
 
-    // Mock registration success
-    localStorage.setItem('auth_token', 'mock_token_' + Date.now())
-    localStorage.setItem('user_name', form.name)
+    if (!response.ok) {
+      errors.general = data.message || 'Registration failed. Please try again.'
+      return
+    }
+
+    // Store token and user info
+    localStorage.setItem('auth_token', data.data.token)
+    localStorage.setItem('user_name', data.data.user.name)
+    localStorage.setItem('user_id', data.data.user.id)
+
     router.push('/lobby')
-  } catch {
-    errors.general = 'An error occurred during registration. Please try again.'
+  } catch (error) {
+    errors.general = 'Connection error. Make sure backend is running at localhost:5000'
+    console.error('Registration error:', error)
   } finally {
     isLoading.value = false
   }

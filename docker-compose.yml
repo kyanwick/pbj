@@ -1,36 +1,68 @@
 services:
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: pbj-postgres
+    environment:
+      POSTGRES_DB: pbj_db
+      POSTGRES_USER: pbj_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-password123}
+    volumes:
+      # Database files on large storage
+      - /mnt/elitecloud/pbj-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pbj_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API Server
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: pbj-backend
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 5000
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: pbj_db
+      DB_USER: pbj_user
+      DB_PASSWORD: ${DB_PASSWORD:-password123}
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-change-this}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:9001}
+    restart: unless-stopped
+    volumes:
+      - ../backend:/app
+      - /app/node_modules
+
+  # Frontend Web App
   web:
     build: .
+    container_name: pbj-frontend
     ports:
-      - "77:80"
+      - "9001:80"
     restart: unless-stopped
-    container_name: my-saas
+    depends_on:
+      - backend
     volumes:
-      # Mount large storage drive for persistent data
-      - /mnt/elitecloud/saas-storage:/app/storage
-      # Optional: mount for easier log access
-      - /mnt/elitecloud/saas-logs:/app/logs
+      # Storage for generated content
+      - /mnt/elitecloud/pbj-storage:/app/storage
+      - /mnt/elitecloud/pbj-logs:/app/logs
     environment:
-      # Configure storage paths
-      NODE_ENV: production
+      NODE_ENV: ${NODE_ENV:-production}
       STORAGE_PATH: /app/storage
       BRAND_KITS_DIR: /app/storage/brand_kits
       SCHEDULED_POSTS_DIR: /app/storage/scheduled_posts
       MEDIA_DIR: /app/storage/media
       GENERATED_HISTORY_DIR: /app/storage/generated_history
       ARCHIVE_DIR: /app/storage/archive
-
-  # Optional: PostgreSQL container (if running DB in Docker)
-  db:
-    image: postgres:16-alpine
-    container_name: saas-db
-    environment:
-      POSTGRES_DB: saas_db
-      POSTGRES_USER: saas_user
-      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeMe}
-    volumes:
-      # Database files on large storage
-      - /mnt/elitecloud/saas-db:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
