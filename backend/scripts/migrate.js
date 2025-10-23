@@ -54,7 +54,7 @@ CREATE INDEX IF NOT EXISTS idx_creator_profiles_submitted_at ON creator_profiles
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 `
 
-export const migrate = async () => {
+export const runMigrations = async () => {
   try {
     console.log('🔄 Running database migrations...')
     
@@ -67,10 +67,14 @@ export const migrate = async () => {
     }
     
     console.log('✅ Migrations completed successfully')
+    return true
   } catch (error) {
-    console.error('❌ Migration error:', error)
-    process.exit(1)
+    console.error('❌ Migration error:', error.message)
+    return false
   }
 }
 
-migrate()
+// Run migrations if this file is executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  runMigrations()
+}

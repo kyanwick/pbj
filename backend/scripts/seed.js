@@ -1,7 +1,7 @@
 import bcryptjs from 'bcryptjs'
 import { query } from '../config/database.js'
 
-const seedData = async () => {
+export const seedDatabase = async () => {
   try {
     console.log('🌱 Seeding database...')
 
@@ -59,8 +59,11 @@ const seedData = async () => {
     console.log('🔑 Test Password: password')
   } catch (error) {
     console.error('❌ Seed error:', error)
-    process.exit(1)
+    // Don't exit - seed errors shouldn't stop the server
   }
 }
 
-seedData()
+// Run seed if this file is executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  seedDatabase()
+}

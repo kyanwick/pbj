@@ -1,7 +1,13 @@
 import pg from 'pg'
 import dotenv from 'dotenv'
+import fs from 'fs'
+import path from 'path'
 
-dotenv.config({ path: '.env.local' })
+// Only load .env.local if it exists
+const envLocalPath = path.resolve('.env.local')
+if (fs.existsSync(envLocalPath)) {
+  dotenv.config({ path: envLocalPath })
+}
 
 const { Pool } = pg
 
@@ -10,7 +16,7 @@ const pool = new Pool({
   port: process.env.DB_PORT || 5432,
   database: process.env.DB_NAME || 'pbj_db',
   user: process.env.DB_USER || 'pbj_user',
-  password: process.env.DB_PASSWORD
+  password: process.env.DB_PASSWORD || 'changeMe'
 })
 
 pool.on('error', (err) => {

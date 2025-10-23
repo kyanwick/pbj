@@ -4,6 +4,8 @@ import dotenv from 'dotenv'
 import authRoutes from './routes/auth.js'
 import profileRoutes from './routes/profiles.js'
 import { authenticateUser } from './middleware/auth.js'
+import { runMigrations } from './scripts/migrate.js'
+import { seedDatabase } from './scripts/seed.js'
 
 dotenv.config({ path: '.env.local' })
 
@@ -17,8 +19,14 @@ app.use(cors({
 }))
 app.use(express.json())
 
+// Request logger to debug routing via proxy
+app.use((req, res, next) => {
+  console.log(`[REQ] ${req.method} ${req.originalUrl}`)
+  next()
+})
+
 // Health check
-app.get('/health', (req, res) => {
+app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' })
 })
 
@@ -42,7 +50,24 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Internal server error' })
 })
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`)
-  console.log(`📱 Frontend: ${process.env.FRONTEND_URL || 'http://localhost:9001'}`)
-})
+// Run migrations and start server
+async function startServer() {
+  try {
+    console.log('🔄 Running database migrations...')
+    await runMigrations()
+    console.log('✅ Migrations completed')
+
+    console.log('🌱 Seeding database...')
+    await seedDatabase()
+    console.log('✅ Database seeded')
+  } catch (error) {
+    console.error('❌ Migration/seed error:', error)
+  }
+
+  app.listen(PORT, () => {
+    console.log(`✅ Server running on http://localhost:${PORT}`)
+    console.log(`📱 Frontend: ${process.env.FRONTEND_URL || 'http://localhost:9001'}`)
+  })
+}
+
+startServer()
