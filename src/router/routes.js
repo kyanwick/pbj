@@ -16,7 +16,7 @@ const routes = [
   },
   {
     path: '/profile',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/AuthLayout.vue'),
     children: [{ path: '', component: () => import('pages/CreatorProfileForm.vue') }],
   },
   {

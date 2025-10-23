@@ -9,7 +9,7 @@
     <div class="container">
       <section v-if="!hasCompletedProfile" class="profile-prompt">
         <div class="prompt-card">
-          <h3>🚀 Before You Start Creating...</h3>
+          <h3>✨ Before You Start Creating...</h3>
           <p>We'd love to know more about your brand and voice. It takes about 10 minutes and helps us generate ideas that sound like YOU.</p>
           <router-link to="/profile" class="btn-prompt">Tell Us About Yourself</router-link>
           <p class="skip-text">You can always do this later from your settings</p>

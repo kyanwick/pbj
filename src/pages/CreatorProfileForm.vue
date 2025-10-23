@@ -413,20 +413,49 @@ const handleSubmit = async () => {
   isSubmitting.value = true
 
   try {
-    // Save to localStorage for now (will integrate with backend API later)
+    // Get user data from localStorage
+    const authToken = localStorage.getItem('auth_token')
+    const userName = localStorage.getItem('user_name')
+
+    // Prepare payload for backend/database
+    const payload = {
+      user_id: authToken ? `user_${Date.now()}` : null,
+      user_name: userName || 'Unknown',
+      auth_token: authToken,
+      timestamp: new Date().toISOString(),
+      ...form.value
+    }
+
+    // Send to backend API endpoint
+    const response = await fetch('/api/creator-profile', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`
+      },
+      body: JSON.stringify(payload)
+    })
+
+    if (!response.ok) {
+      const errorData = await response.json()
+      throw new Error(errorData.message || 'Failed to save profile')
+    }
+
+    // Save to localStorage as backup
     localStorage.setItem('creator_profile', JSON.stringify(form.value))
     localStorage.setItem('profile_completed', 'true')
 
     successMessage.value = '🎉 Profile saved! Ready to start creating?'
 
     setTimeout(() => {
-      router.push('/lobby')
-    }, 2000)
-  } catch (err) {
-    errors.value.submit = 'Failed to save profile. Please try again.'
-  } finally {
-    isSubmitting.value = false
-  }
+        router.push('/lobby')
+      }, 2000)
+    } catch (err) {
+      errors.value.submit = err.message || 'Failed to save profile. Please try again.'
+      console.error('Profile submission error:', err)
+    } finally {
+      isSubmitting.value = false
+    }
 }
 </script>
 
