@@ -9,6 +9,7 @@
         </div>
         <nav class="nav-links">
           <router-link to="/">HOME</router-link>
+          <router-link to="/lobby">LOBBY</router-link>
           <router-link to="/features">FEATURES</router-link>
           <router-link to="/pricing">PRICING</router-link>
           <router-link to="/blog">BLOG</router-link>
