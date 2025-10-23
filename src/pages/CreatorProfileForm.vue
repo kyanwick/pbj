@@ -463,7 +463,9 @@ const handleSubmit = async () => {
       }, 2000)
     } catch (err) {
       errors.value.submit = err.message || 'Failed to save profile. Please try again.'
-      console.error('Profile submission error:', err)
+      if (process.env.NODE_ENV !== 'production') {
+        console.error('Profile submission error:', err)
+      }
     } finally {
       isSubmitting.value = false
     }

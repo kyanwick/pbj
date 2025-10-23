@@ -47,7 +47,10 @@ export const register = async (req, res) => {
     })
   } catch (error) {
     console.error('Register error:', error)
-    res.status(500).json({ message: 'Registration failed', error: error.message })
+    const message = process.env.NODE_ENV === 'production' 
+      ? 'Registration failed' 
+      : `Registration failed: ${error.message}`
+    res.status(500).json({ message })
   }
 }
 
@@ -96,7 +99,10 @@ export const login = async (req, res) => {
     })
   } catch (error) {
     console.error('Login error:', error)
-    res.status(500).json({ message: 'Login failed', error: error.message })
+    const message = process.env.NODE_ENV === 'production' 
+      ? 'Login failed' 
+      : `Login failed: ${error.message}`
+    res.status(500).json({ message })
   }
 }
 

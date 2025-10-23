@@ -104,16 +104,24 @@ Permissions-Policy: geolocation=(), microphone=(), camera=()
 - **Length limits**: Max string lengths enforced
 
 ### Error Handling
-- **No stack traces exposed**: Generic error messages to users
+- **No stack traces exposed**: Generic error messages to users in production
+- **Production mode check**: Error details only shown in development
 - **Detailed logs**: Stack traces logged server-side only
 - **Status codes**: Proper HTTP status codes returned
 - **No sensitive data in errors**: Passwords, tokens never in error messages
 
+### Console Logging
+- **Production disabled**: All console statements removed in production builds
+- **Development only**: Console logging only enabled in development mode
+- **Automatic removal**: Vite configured to drop console and debugger in production
+- **Request logging**: Backend request logging disabled in production
+
 ### Middleware Security
 - **CORS**: Configured to allow only production domain
 - **Helmet**: Consider adding for additional headers
-- **Request logging**: All requests logged for audit trail
+- **Request logging**: Disabled in production for security
 - **Authentication**: JWT verified on protected endpoints
+- **Vue DevTools**: Disabled in production builds
 
 ---
 
@@ -121,7 +129,8 @@ Permissions-Policy: geolocation=(), microphone=(), camera=()
 
 ### Secrets Management
 - **Never in code**: All secrets in `.env.production`
-- **Never in git**: `.env.production` in `.gitignore`
+- **Never in git**: `.env`, `.env.production`, and `.env.local*` in `.gitignore`
+- **Removed from tracking**: Previously tracked .env files removed from git history
 - **Unique values**: Generated with `openssl rand -base64 32`
 - **Rotation**: Should rotate every 6-12 months
 
