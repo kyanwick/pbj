@@ -80,7 +80,16 @@ export default defineConfig((/* ctx */) => {
           changeOrigin: true,
           ws: true
         }
-      }
+      },
+      middlewares: [
+        // Fallback to index.html for SPA routing
+        (req, res, next) => {
+          if (req.method === 'GET' && !req.url.match(/\./)) {
+            req.url = '/index.html'
+          }
+          next()
+        }
+      ]
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework
