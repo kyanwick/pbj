@@ -18,6 +18,9 @@ FROM nginx:stable-alpine AS production-stage
 # Copy built files from build stage
 COPY --from=build-stage /app/dist/spa /usr/share/nginx/html
 
+# Copy nginx configuration for SPA fallback and API proxy
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Create directories for storage and logs (will be mounted from host)
 RUN mkdir -p /app/storage/brand_kits \
     /app/storage/scheduled_posts \
@@ -31,7 +34,6 @@ RUN chmod -R 755 /app/storage /app/logs
 
 # Optional: Copy a simple API handler if you need to serve storage files
 # (if your app needs to serve generated files back to users)
-# COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 

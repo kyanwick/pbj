@@ -17,11 +17,13 @@ const routes = [
   {
     path: '/profile',
     component: () => import('layouts/AuthLayout.vue'),
+    meta: { requiresAuth: true },
     children: [{ path: '', component: () => import('pages/CreatorProfileForm.vue') }],
   },
   {
     path: '/lobby',
     component: () => import('layouts/AuthLayout.vue'),
+    meta: { requiresAuth: true },
     children: [{ path: '', component: () => import('pages/CreatorLobby.vue') }],
   },
 

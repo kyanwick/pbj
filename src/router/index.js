@@ -33,5 +33,27 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     history: createHistory(process.env.VUE_ROUTER_BASE),
   })
 
+  // Global auth guard: protect routes with meta.requiresAuth
+  Router.beforeEach((to, from, next) => {
+    // Only run on client
+    if (typeof window === 'undefined') return next()
+
+    const token = window.localStorage.getItem('auth_token')
+
+    // If route requires auth and no token, redirect to login
+    if (to.matched.some(record => record.meta && record.meta.requiresAuth)) {
+      if (!token) {
+        return next({ path: '/login', query: { redirect: to.fullPath } })
+      }
+    }
+
+    // Optional: prevent logged-in users from seeing login/register
+    if ((to.path === '/login' || to.path === '/register') && token) {
+      return next('/lobby')
+    }
+
+    return next()
+  })
+
   return Router
 })

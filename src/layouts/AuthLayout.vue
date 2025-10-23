@@ -65,15 +65,41 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const showProfileMenu = ref(false)
-const userInitial = ref('K') // Will be dynamic from user data
+const userName = ref('')
+
+// Get user initial from stored name
+const userInitial = computed(() => {
+  return userName.value ? userName.value.charAt(0).toUpperCase() : 'U'
+})
+
+onMounted(() => {
+  // Check if user is authenticated
+  const token = localStorage.getItem('auth_token')
+  const name = localStorage.getItem('user_name')
+  
+  if (!token) {
+    // Not authenticated - redirect to login
+    setTimeout(() => {
+      router.push('/login')
+    }, 0)
+    return
+  }
+  
+  if (name) {
+    userName.value = name
+  }
+})
 
 const logout = () => {
-  // TODO: Clear auth token
+  // Clear auth data
+  localStorage.removeItem('auth_token')
+  localStorage.removeItem('user_name')
+  localStorage.removeItem('user_id')
   router.push('/')
 }
 </script>

@@ -134,7 +134,14 @@ const handleLogin = async () => {
     localStorage.setItem('user_name', data.data.user.name)
     localStorage.setItem('user_id', data.data.user.id)
 
-    router.push('/lobby')
+    // Check if profile is completed
+    if (data.data.user.profile_completed) {
+      // Profile complete - go to lobby
+      router.push('/lobby')
+    } else {
+      // New user - direct to profile form
+      router.push('/profile')
+    }
   } catch (error) {
     errors.general = 'Connection error. Please try again.'
     console.error('Login error:', error)

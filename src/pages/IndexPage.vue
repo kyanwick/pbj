@@ -118,7 +118,18 @@
 </template>
 
 <script setup lang="ts">
-// Component logic
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+// Redirect logged-in users to lobby
+onMounted(() => {
+  const token = localStorage.getItem('auth_token')
+  if (token) {
+    router.push('/lobby')
+  }
+})
 </script>
 
 <style scoped lang="scss">
