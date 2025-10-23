@@ -58,7 +58,7 @@ sudo -u postgres createdb -O pbj_user pbj_db
 
 ```bash
 # Navigate to backend
-cd /home/kyanwick/saas/backend
+cd <project-directory>/backend
 
 # Copy environment file
 cp .env.example .env.local
@@ -85,7 +85,7 @@ npm run dev
 
 ```bash
 # Navigate to frontend
-cd /home/kyanwick/saas/saas
+cd <project-directory>/saas
 
 # Install dependencies (if not already done)
 npm install
@@ -240,7 +240,7 @@ DEBUG=false
 ## Folder Structure
 
 ```
-/home/kyanwick/saas/
+<project-directory>/
 ├── backend/                          # Node.js backend
 │   ├── config/database.js           # PostgreSQL connection
 │   ├── middleware/auth.js           # JWT & authentication
@@ -297,7 +297,7 @@ node --version  # Should be v20.x.x
 ### "Database migration failed"
 ```bash
 # Reset and retry
-cd /home/kyanwick/saas/backend
+cd <project-directory>/backend
 npm run migrate
 npm run seed
 ```
@@ -316,10 +316,10 @@ npm run seed
 
 ## File References
 
-- Backend Setup: `/home/kyanwick/saas/backend/SETUP.md`
-- Database Schema: `/home/kyanwick/saas/PROFILE_FORM_SAMPLE_OUTPUT.md`
-- Implementation Details: `/home/kyanwick/saas/BACKEND_IMPLEMENTATION.md`
-- Deployment: `/home/kyanwick/saas/DEPLOYMENT_SETUP.md`
+- Backend Setup: `<project-directory>/backend/SETUP.md`
+- Database Schema: `<project-directory>/PROFILE_FORM_SAMPLE_OUTPUT.md`
+- Implementation Details: `<project-directory>/BACKEND_IMPLEMENTATION.md`
+- Deployment: `<project-directory>/DEPLOYMENT_SETUP.md`
 
 ---
 

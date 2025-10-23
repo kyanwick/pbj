@@ -16,7 +16,7 @@ Complete PB+J stack with Docker Compose: Frontend + Backend + PostgreSQL
 ### 1. Create .env file
 
 ```bash
-cd /home/kyanwick/saas
+cd <project-directory>
 cp .env.example .env
 ```
 
@@ -31,7 +31,7 @@ FRONTEND_URL=http://localhost:9001
 ### 2. Start Everything
 
 ```bash
-cd /home/kyanwick/saas
+cd <project-directory>
 docker-compose up
 ```
 

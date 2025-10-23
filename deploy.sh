@@ -5,9 +5,9 @@
 
 set -e
 
-PROJECT_DIR="/home/kyanwick/saas"
+PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKEND_DIR="$PROJECT_DIR/backend"
-FRONTEND_DIR="$PROJECT_DIR/saas"
+FRONTEND_DIR="$PROJECT_DIR"
 
 # Color codes
 GREEN='\033[0;32m'
@@ -34,8 +34,8 @@ echo -e "${GREEN}✅ Code updated${NC}"
 
 # 2. Verify environment
 print_section "2️⃣  Verifying environment configuration"
-if [ ! -f "$PROJECT_DIR/saas/.env" ]; then
-  echo -e "${RED}❌ .env file not found in saas/ folder${NC}"
+if [ ! -f "$PROJECT_DIR/.env" ]; then
+  echo -e "${RED}❌ .env file not found${NC}"
   echo "Create .env with required variables (DB_PASSWORD, JWT_SECRET, etc.)"
   exit 1
 fi

@@ -31,7 +31,7 @@ Keep these values safe! You'll use them in the next step.
 Edit `.env.production` with your secrets:
 
 ```bash
-cd /home/kyanwick/saas/saas
+cd <project-directory>
 nano .env.production
 ```
 
@@ -87,7 +87,7 @@ ls -la /mnt/elitecloud/
 
 ```bash
 # Copy Nginx configuration to system
-sudo cp /home/kyanwick/saas/saas/nginx.conf /etc/nginx/sites-available/pbj
+sudo cp <project-directory>/nginx.conf /etc/nginx/sites-available/pbj
 
 # Enable site
 sudo ln -s /etc/nginx/sites-available/pbj /etc/nginx/sites-enabled/pbj
@@ -110,7 +110,7 @@ sudo systemctl enable nginx
 ## Step 6: Build and Start Docker Services
 
 ```bash
-cd /home/kyanwick/saas/saas
+cd <project-directory>
 
 # Build Docker image (first time only)
 docker-compose -f docker-compose.yml build

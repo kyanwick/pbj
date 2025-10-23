@@ -92,7 +92,7 @@ DB_PASS=$(openssl rand -base64 32)
 JWT_SECRET=$(openssl rand -base64 32)
 
 # 2. Update .env.production
-cd /home/kyanwick/saas/saas
+cd <project-directory>
 nano .env.production
 # Add the generated DB_PASSWORD and JWT_SECRET
 

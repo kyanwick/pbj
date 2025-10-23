@@ -8,7 +8,7 @@ Quick reference for all available scripts in the project.
 Start everything locally for development.
 
 ```bash
-cd /home/kyanwick/saas
+cd <project-directory>
 ./dev.sh
 ```
 
@@ -52,7 +52,7 @@ Run database migrations when you change the schema.
 Deploy to production (builds and restarts containers).
 
 ```bash
-cd /home/kyanwick/saas
+cd <project-directory>
 ./deploy.sh
 ```
 

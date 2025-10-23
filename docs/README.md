@@ -30,7 +30,7 @@ Complete guide to setting up, developing, and deploying the PB+J creator platfor
 
 ### Local Development
 ```bash
-cd /home/kyanwick/saas
+cd <project-directory>
 ./dev.sh
 ```
 
@@ -48,7 +48,7 @@ docker compose down  # Stops database
 
 ## 📂 Project Structure
 ```
-/home/kyanwick/saas/
+<project-directory>/
 ├── docs/                 # 📄 This documentation
 ├── backend/              # 🔧 Node.js/Express API
 │   ├── config/

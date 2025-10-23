@@ -114,7 +114,7 @@ Publish         → n8n reads from storage → Publish → Move to /archive/
 
 ### Step 1: Initialize (One Time)
 ```bash
-cd /home/kyanwick/saas/saas
+cd <project-directory>/saas
 ./scripts/init-storage.sh
 ```
 

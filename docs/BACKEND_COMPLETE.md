@@ -48,7 +48,7 @@ npm run dev
 
 ### 3. Start Frontend
 ```bash
-cd /home/kyanwick/saas/saas
+cd <project-directory>
 npm run dev
 # Frontend running on http://localhost:9001
 ```

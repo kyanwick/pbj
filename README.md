@@ -6,7 +6,7 @@ A full-stack SaaS application for content creators - an AI-powered content creat
 
 ### Option 1: Local Development (Backend + Frontend)
 ```bash
-cd /home/kyanwick/saas
+cd <project-directory>
 ./dev.sh
 ```
 

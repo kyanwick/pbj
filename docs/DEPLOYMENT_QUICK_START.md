@@ -14,7 +14,7 @@ All persistent data will be stored on the large drive to prevent system disk blo
 
 ### Step 1: Initialize Storage Directories
 ```bash
-cd /home/kyanwick/saas/saas
+cd <project-directory>/saas
 chmod +x scripts/init-storage.sh
 ./scripts/init-storage.sh
 ```

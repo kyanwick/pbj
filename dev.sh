@@ -5,9 +5,9 @@
 
 set -e
 
-ROOT_DIR="/home/kyanwick/saas"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKEND_DIR="$ROOT_DIR/backend"
-FRONTEND_DIR="$ROOT_DIR/saas"
+FRONTEND_DIR="$ROOT_DIR"
 
 echo "🚀 Starting PB+J Local Development..."
 echo ""

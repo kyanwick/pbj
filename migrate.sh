@@ -8,7 +8,7 @@ set -e
 echo "🔄 Running Database Migrations..."
 echo ""
 
-BACKEND_DIR="/home/kyanwick/saas/backend"
+BACKEND_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/backend"
 
 # Color codes
 GREEN='\033[0;32m'
@@ -22,7 +22,7 @@ if ! curl -s http://localhost:5000/api/health > /dev/null 2>&1; then
   echo -e "${YELLOW}⚠️  Backend is not running!${NC}"
   echo ""
   echo "Start the backend first:"
-  echo "  cd /home/kyanwick/saas/backend && npm start"
+  echo "  cd $(dirname "$BACKEND_DIR")/backend && npm start"
   echo ""
   exit 1
 fi

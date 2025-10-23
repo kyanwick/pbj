@@ -5,7 +5,7 @@
 Just run this one command to start everything:
 
 ```bash
-cd /home/kyanwick/saas
+cd <project-directory>
 ./dev.sh
 ```
 
@@ -25,7 +25,7 @@ Then open http://localhost:9001 in your browser!
 
 ```bash
 # Clone/navigate to project
-cd /home/kyanwick/saas
+cd <project-directory>
 
 # Backend: create .env.local for local dev
 cat > backend/.env.local << 'EOF'
@@ -43,11 +43,10 @@ EOF
 echo "✅ Created backend/.env.local"
 
 # Frontend: install deps
-cd saas
 npm install
 
 # Backend: install deps
-cd ../backend
+cd backend
 npm install
 
 echo "✅ Setup complete! Ready to start developing."
@@ -59,7 +58,7 @@ echo "✅ Setup complete! Ready to start developing."
 
 ### Terminal 1: Start Postgres (in Docker)
 ```bash
-cd /home/kyanwick/saas/saas
+cd <project-directory>
 docker compose up -d db
 # Wait ~5 sec for it to be ready
 # Verify: docker ps | grep postgres should show healthy
@@ -69,7 +68,7 @@ docker compose up -d db
 
 **First time only:**
 ```bash
-cd /home/kyanwick/saas/backend
+cd <project-directory>/backend
 node scripts/migrate.js    # Create database tables
 node scripts/seed.js       # Insert demo user (optional, skip if you want to register your own)
 npm start
@@ -77,7 +76,7 @@ npm start
 
 **After that, just:**
 ```bash
-cd /home/kyanwick/saas/backend
+cd <project-directory>/backend
 npm start
 # or with auto-reload on code changes:
 npx nodemon server.js
@@ -87,7 +86,7 @@ npx nodemon server.js
 
 ### Terminal 3: Start frontend dev server (locally on your machine)
 ```bash
-cd /home/kyanwick/saas/saas
+cd <project-directory>
 npm run dev
 # Open http://localhost:9001 when ready
 # It automatically proxies /api/* to http://localhost:5000
@@ -141,7 +140,7 @@ docker compose down
 
 **Frontend loading forever / hanging?**
 - Make sure backend is running: `curl http://localhost:5000/api/health`
-- If that fails, start backend in Terminal 2: `cd /home/kyanwick/saas/backend && npm start`
+- If that fails, start backend in Terminal 2: `cd <project-directory>/backend && npm start`
 - The frontend waits for the backend to respond before loading
 
 **Migration error: "password authentication failed for user pbj_user"?**
@@ -162,7 +161,7 @@ docker compose down
 - 9001 (frontend): `lsof -i :9001`
 
 **Database auth failed?**
-- Ensure .env.local password matches .env in saas/ folder
+- Ensure .env.local password matches .env in the project root
 - Current password: `pbj_secure_password_2024`
 
 **CSS/assets not loading in dev?**
