@@ -91,7 +91,10 @@ export const createProfile = async (req, res) => {
     })
   } catch (error) {
     console.error('Create profile error:', error)
-    res.status(500).json({ message: 'Failed to save profile', error: error.message })
+    const message = process.env.NODE_ENV === 'production' 
+      ? 'Failed to save profile' 
+      : `Failed to save profile: ${error.message}`
+    res.status(500).json({ message })
   }
 }
 
@@ -120,7 +123,10 @@ export const getProfile = async (req, res) => {
     })
   } catch (error) {
     console.error('Get profile error:', error)
-    res.status(500).json({ message: 'Failed to fetch profile', error: error.message })
+    const message = process.env.NODE_ENV === 'production' 
+      ? 'Failed to fetch profile' 
+      : `Failed to fetch profile: ${error.message}`
+    res.status(500).json({ message })
   }
 }
 
@@ -193,7 +199,10 @@ export const updateProfile = async (req, res) => {
     })
   } catch (error) {
     console.error('Update profile error:', error)
-    res.status(500).json({ message: 'Failed to update profile', error: error.message })
+    const message = process.env.NODE_ENV === 'production' 
+      ? 'Failed to update profile' 
+      : `Failed to update profile: ${error.message}`
+    res.status(500).json({ message })
   }
 }
 

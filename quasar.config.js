@@ -3,7 +3,7 @@
 
 import { defineConfig } from '#q-app/wrappers'
 
-export default defineConfig((/* ctx */) => {
+export default defineConfig((ctx) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
@@ -39,7 +39,7 @@ export default defineConfig((/* ctx */) => {
 
       vueRouterMode: 'history', // available values: 'hash', 'history'
       // vueRouterBase,
-      // vueDevtools,
+      vueDevtools: ctx.dev, // Enable devtools only in development
       // vueOptionsAPI: false,
 
       // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
@@ -49,11 +49,20 @@ export default defineConfig((/* ctx */) => {
       // env: {},
       // rawDefine: {}
       // ignorePublicFolder: true,
-      // minify: false,
+      minify: ctx.prod, // Minify in production
       // polyfillModulePreload: true,
       // distDir
 
       // extendViteConf (viteConf) {},
+      extendViteConf (viteConf) {
+        if (ctx.prod) {
+          // Remove console statements in production
+          viteConf.esbuild = {
+            ...viteConf.esbuild,
+            drop: ['console', 'debugger']
+          }
+        }
+      },
       // viteVuePluginOptions: {},
 
       vitePlugins: [

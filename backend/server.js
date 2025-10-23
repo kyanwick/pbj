@@ -19,11 +19,13 @@ app.use(cors({
 }))
 app.use(express.json())
 
-// Request logger to debug routing via proxy
-app.use((req, res, next) => {
-  console.log(`[REQ] ${req.method} ${req.originalUrl}`)
-  next()
-})
+// Request logger (disabled in production for security)
+if (process.env.NODE_ENV !== 'production') {
+  app.use((req, res, next) => {
+    console.log(`[REQ] ${req.method} ${req.originalUrl}`)
+    next()
+  })
+}
 
 // Health check
 app.get('/api/health', (req, res) => {
@@ -47,26 +49,39 @@ app.use((req, res) => {
 // Error handler
 app.use((err, req, res, next) => {
   console.error('Server error:', err)
-  res.status(500).json({ message: 'Internal server error' })
+  const message = process.env.NODE_ENV === 'production'
+    ? 'Internal server error'
+    : err.message || 'Internal server error'
+  res.status(500).json({ message })
 })
 
 // Run migrations and start server
 async function startServer() {
   try {
-    console.log('🔄 Running database migrations...')
+    if (process.env.NODE_ENV !== 'production') {
+      console.log('🔄 Running database migrations...')
+    }
     await runMigrations()
-    console.log('✅ Migrations completed')
+    if (process.env.NODE_ENV !== 'production') {
+      console.log('✅ Migrations completed')
+    }
 
-    console.log('🌱 Seeding database...')
+    if (process.env.NODE_ENV !== 'production') {
+      console.log('🌱 Seeding database...')
+    }
     await seedDatabase()
-    console.log('✅ Database seeded')
+    if (process.env.NODE_ENV !== 'production') {
+      console.log('✅ Database seeded')
+    }
   } catch (error) {
     console.error('❌ Migration/seed error:', error)
   }
 
   app.listen(PORT, () => {
     console.log(`✅ Server running on http://localhost:${PORT}`)
-    console.log(`📱 Frontend: ${process.env.FRONTEND_URL || 'http://localhost:9001'}`)
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`📱 Frontend: ${process.env.FRONTEND_URL || 'http://localhost:9001'}`)
+    }
   })
 }
 
