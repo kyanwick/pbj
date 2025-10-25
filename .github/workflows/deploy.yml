@@ -1,5 +1,10 @@
 name: Deploy to Production
 
+# ⚠️ IMPORTANT: Customize for your deployment
+# 1. Set GitHub Secrets: DEPLOY_HOST, DEPLOY_USER, DEPLOY_KEY
+# 2. Update the 'cd' path below to your project directory
+# See docs/DEPLOYMENT_CONFIG.md for full setup guide
+
 on:
   push:
     branches:

@@ -2,6 +2,10 @@
 
 # Deploy script for PB+J production deployment
 # Pulls latest code, rebuilds Docker containers, and restarts services
+#
+# ⚠️ NOTE: This script contains example domain (pb.kyanoberas.com)
+# Customize line 81 with your own domain or remove the echo statement
+# See docs/DEPLOYMENT_CONFIG.md for full customization guide
 
 set -e
 
