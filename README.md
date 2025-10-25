@@ -2,6 +2,16 @@
 
 A full-stack SaaS application for content creators - an AI-powered content creation hub for building profiles, generating ideas, and managing workflows.
 
+## 🔐 Security Notice
+
+**This is a public repository for portfolio purposes.** Sensitive information is protected:
+
+- ✅ `.env` files are gitignored and never committed
+- ✅ API keys and secrets are stored in environment variables
+- ✅ n8n webhooks require authentication (see [API Security Guide](./docs/API_SECURITY.md))
+- ⚠️ **Never commit `.env`, `.env.local`, or files containing secrets**
+- 📖 See [API_SECURITY.md](./docs/API_SECURITY.md) for webhook protection strategies
+
 ## 🚀 Quick Start
 
 ### Option 1: Local Development (Backend + Frontend)
@@ -42,6 +52,7 @@ See **[docs/README.md](./docs/README.md)** for complete documentation including:
 
 ### Quick Documentation Links
 
+- 🔐 **[API Security Guide](./docs/API_SECURITY.md)** - Protect n8n webhooks & API endpoints
 - 🚀 **[Deployment Quick Start](./docs/DEPLOYMENT_QUICK_START.md)** - Get Docker running in 5 minutes
 - 📦 **[Docker Storage Guide](./docs/DOCKER_STORAGE.md)** - Storage architecture & backup strategies
 - 🤖 **[AI Agent Instructions](./.github/copilot-instructions.md)** - For AI coding agents

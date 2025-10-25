@@ -20,6 +20,7 @@ Complete guide to setting up, developing, and deploying the PB+J creator platfor
 - **[PRODUCTION_DEPLOYMENT.md](./PRODUCTION_DEPLOYMENT.md)** - Production deployment steps
 
 ### 🔒 Security & Ops
+- **[API_SECURITY.md](./API_SECURITY.md)** - 🔐 Protect n8n webhooks & API endpoints (READ THIS!)
 - **[SECURITY_BEST_PRACTICES.md](./SECURITY_BEST_PRACTICES.md)** - Security checklist and best practices
 - **[DEPLOYMENT_CHECKLIST.md](./DEPLOYMENT_CHECKLIST.md)** - Pre-deployment verification
 - **[GIT_GITHUB_SETUP.md](./GIT_GITHUB_SETUP.md)** - GitHub setup and git workflow

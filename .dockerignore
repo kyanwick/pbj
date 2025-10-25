@@ -3,8 +3,15 @@ node_modules
 .gitignore
 README.md
 .env
+.env.local
+.env.production
+.env.*.local
 .quasar
 dist
 .vscode
 .idea
 *.log
+secrets/
+*.pem
+*.key
+.env.local.example
