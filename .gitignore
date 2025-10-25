@@ -1,1 +1,105 @@
+# Environment variables (NEVER commit these!)
+.env
+.env.local
+.env.production
+.env.*.local
+# Allow .env.example files (they're safe templates)
+!.env.example
+!.env.local.example
+!**/.env.example
+!**/.env.local.example
 
+# Sensitive configuration files
+config/secrets.js
+config/secrets.json
+config/production.js
+secrets/
+
+# API keys and tokens (be specific to avoid false positives)
+secrets.json
+secrets.js
+api-keys.json
+credentials.json
+service-account*.json
+*.pem
+*.key
+*.p8
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json.bak
+
+# Build outputs
+dist/
+build/
+.quasar/
+.cache/
+*.tsbuildinfo
+
+# IDE and editor files
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Docker volumes (local development)
+postgres-data/
+redis-data/
+storage-data/
+
+# Personal notes and drafts
+NOTES.md
+TODO.md
+.personal/
+
+# n8n workflows with credentials (if exported)
+*workflow*credentials*.json
+n8n-exports/
+
+# SSH keys
+id_rsa
+id_ed25519
+*.ppk
+
+# SSL certificates (use secrets manager instead)
+ssl/
+certs/
+*.crt
+*.p12
+*.pfx

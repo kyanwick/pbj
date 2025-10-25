@@ -2,6 +2,10 @@
 
 # Deploy script for SaaS production deployment
 # Rebuilds Docker image and restarts containers
+#
+# ⚠️ NOTE: This script references /mnt/elitecloud/ storage paths
+# Customize storage paths in docker-compose.yml if using different mount points
+# See docs/DEPLOYMENT_CONFIG.md and docs/DOCKER_STORAGE.md for details
 
 set -e
 
