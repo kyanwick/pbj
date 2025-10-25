@@ -53,13 +53,13 @@ SECRET_PATTERNS=(
   "github_pat_[a-zA-Z0-9]{22}_[a-zA-Z0-9]{59}"
   "sk-[a-zA-Z0-9]{48}"
   "r8_[a-zA-Z0-9]{40}"
-  "-----BEGIN (RSA |EC |DSA |OPENSSH )?PRIVATE KEY-----"
+  "-----BEGIN.*PRIVATE KEY-----"
 )
 
 WARNINGS=()
 
 for pattern in "${SECRET_PATTERNS[@]}"; do
-  if git diff --cached | grep -iE "$pattern" > /dev/null; then
+  if git diff --cached | grep -iE -- "$pattern" > /dev/null 2>&1; then
     WARNINGS+=("Pattern detected: ${pattern:0:50}...")
   fi
 done
