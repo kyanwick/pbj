@@ -230,13 +230,34 @@ When making your code public:
 - [ ] Environment variables documented in `.env.example` (with placeholders only)
 - [ ] Production secrets stored securely (not in git or docker-compose.yml)
 - [ ] Review git history: `git log --all --full-history --source -- "*.env"`
-- [ ] Consider adding pre-commit hooks to prevent secret commits
+- [ ] Install pre-commit hook: `cp scripts/pre-commit.sh .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit`
 
 ---
 
-## Pre-Commit Hook (Optional)
+## Pre-Commit Hook
 
-Prevent accidental commits of secrets:
+**This repository includes a pre-commit hook** in `scripts/pre-commit.sh` that helps prevent accidental secret commits.
+
+**Installation:**
+```bash
+cp scripts/pre-commit.sh .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+```
+
+The hook will:
+- ✅ Block commits of `.env` and other sensitive files
+- ⚠️ Warn about potential API keys, secrets, or tokens in code
+- 🔍 Detect common secret patterns (JWT secrets, database URLs, etc.)
+- 💡 Provide guidance on how to fix issues
+
+**To bypass (use carefully!):**
+```bash
+git commit --no-verify
+```
+
+### Manual Secret Detection
+
+Prevent accidental commits of secrets without using the included hook:
 
 ```bash
 # .git/hooks/pre-commit (make executable: chmod +x .git/hooks/pre-commit)

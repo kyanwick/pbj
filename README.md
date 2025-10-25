@@ -12,6 +12,12 @@ A full-stack SaaS application for content creators - an AI-powered content creat
 - ⚠️ **Never commit `.env`, `.env.local`, or files containing secrets**
 - 📖 See [API_SECURITY.md](./docs/API_SECURITY.md) for webhook protection strategies
 
+**Optional: Install pre-commit hook** to prevent accidental secret commits:
+```bash
+cp scripts/pre-commit.sh .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+```
+
 ## 🚀 Quick Start
 
 ### Option 1: Local Development (Backend + Frontend)
